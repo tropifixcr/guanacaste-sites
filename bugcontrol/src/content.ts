@@ -10,6 +10,7 @@ export interface Pest {
   urgency: string;
   work: string;
   problem: string;
+  alt: string;
 }
 
 const en = {
@@ -22,7 +23,6 @@ const en = {
   lead: 'Find what you saw on the plate. A local pest control technician will contact you. Free for you.',
   plateTitle: 'Household pests of coastal Guanacaste',
   plateHint: 'Tap the one you found',
-  placeholder: 'Illustration to come',
   report: 'Report what you found',
   reportThis: 'Report this',
   whatsapp: 'WhatsApp',
@@ -32,49 +32,49 @@ const en = {
   guideLead: 'In a dry tropical forest, insects come with the territory. These are the ones owners call about most.',
   pests: [
     {
-      id: 'termites', name: 'Termites', latin: 'Nasutitermes, Cryptotermes', problem: 'Termites',
+      id: 'termites', alt: 'Illustration of a termite worker and a winged termite beside a mud tube', name: 'Termites', latin: 'Nasutitermes, Cryptotermes', problem: 'Termites',
       signs: 'Thin mud tubes on walls or beams, wood that sounds hollow, small piles of droppings like sand or sawdust, and loose wings on windowsills after the first rains.',
       urgency: 'Not an emergency tonight, but do not wait: termites can damage wood for months before anything shows.',
       work: 'An inspection to find how far they have gone, then treatment of the colony and the affected wood.',
     },
     {
-      id: 'ants', name: 'Ants', latin: 'Solenopsis and others', problem: 'Ants',
+      id: 'ants', alt: 'Illustration of a fire ant', name: 'Ants', latin: 'Solenopsis and others', problem: 'Ants',
       signs: 'Trails across the kitchen, nests inside walls or plant pots, and fire ant mounds in the lawn.',
       urgency: 'Fire ants sting. Treat them soon when they are inside or where children and pets play.',
       work: 'Finding the nest and treating it, rather than only spraying the trail.',
     },
     {
-      id: 'cockroaches', name: 'Cockroaches', latin: 'Periplaneta americana', problem: 'Cockroaches',
+      id: 'cockroaches', alt: 'Illustration of an American cockroach', name: 'Cockroaches', latin: 'Periplaneta americana', problem: 'Cockroaches',
       signs: 'Seen at night in kitchens and bathrooms, and droppings like ground pepper in cabinets.',
       urgency: 'Worth treating before guests notice, especially in a rental.',
       work: 'Bait and treatment of the places they hide, and a schedule for rentals.',
     },
     {
-      id: 'scorpions', name: 'Scorpions', latin: 'Centruroides', problem: 'Scorpions or spiders',
+      id: 'scorpions', alt: 'Illustration of a bark scorpion', name: 'Scorpions', latin: 'Centruroides', problem: 'Scorpions or spiders',
       signs: 'In shoes, towels, bathrooms and under furniture, often more at the start of the rains.',
       urgency: 'Stings are painful. If someone is stung and feels unwell, get medical help first.',
       work: 'Treatment around the house and its entry points, and advice on gaps to seal.',
     },
     {
-      id: 'wasps', name: 'Wasps', latin: 'Polistes and others', problem: 'Wasps',
+      id: 'wasps', alt: 'Illustration of a paper wasp beside its comb nest', name: 'Wasps', latin: 'Polistes and others', problem: 'Wasps',
       signs: 'Papery nests under eaves, roof overhangs, window frames and outdoor furniture, and wasps flying in and out of gaps in walls or the roof.',
       urgency: 'Deal with it soon when the nest is near a door, the pool or where children play. Do not try to knock a nest down yourself.',
       work: 'Removing the nest safely and treating the spot so they do not build there again.',
     },
     {
-      id: 'rodents', name: 'Rodents and bats', latin: 'Rattus rattus, Chiroptera', problem: 'Rodents or bats',
+      id: 'rodents', alt: 'Illustration of a roof rat and a bat', name: 'Rodents and bats', latin: 'Rattus rattus, Chiroptera', problem: 'Rodents or bats',
       signs: 'Droppings, gnawed food or cables, and noises in the ceiling at night.',
       urgency: 'Deal with it soon: droppings and gnawed wiring are a health and fire risk.',
       work: 'Finding how they get in and closing the entry points. Bats are moved out by closing the gaps once they have left at night.',
     },
     {
-      id: 'geckos', name: 'Geckos', latin: 'Hemidactylus frenatus', problem: 'Geckos',
+      id: 'geckos', alt: 'Illustration of a common house gecko', name: 'Geckos', latin: 'Hemidactylus frenatus', problem: 'Geckos',
       signs: 'Chirping at night, small dark droppings with a white tip on walls, floors and window ledges, and geckos gathered around outdoor lights.',
       urgency: 'Harmless to people, and they eat insects, but the droppings stain walls and bother guests.',
       work: 'Treating the insects that draw them to the lights, and closing gaps around doors, windows and the roof so they stay outside.',
     },
     {
-      id: 'mosquitoes', name: 'Mosquitoes', latin: 'Aedes aegypti', problem: 'Mosquitoes',
+      id: 'mosquitoes', alt: 'Illustration of an Aedes aegypti mosquito', name: 'Mosquitoes', latin: 'Aedes aegypti', problem: 'Mosquitoes',
       signs: 'Bites at dusk and in the morning, and standing water in plant pots, gutters, tires or tank lids.',
       urgency: 'Act early in the rainy season, when they breed fastest.',
       work: 'Treating the places they breed and fogging around the garden. Emptying standing water every week helps between visits.',
@@ -127,7 +127,6 @@ const es: typeof en = {
   lead: 'Busque en la lámina lo que encontró. Un técnico local en control de plagas le contactará. Sin costo para usted.',
   plateTitle: 'Plagas comunes en las casas de la costa de Guanacaste',
   plateHint: 'Toque la que encontró',
-  placeholder: 'Ilustración pendiente',
   report: 'Reportar lo que encontró',
   reportThis: 'Reportar esta plaga',
   whatsapp: 'WhatsApp',
@@ -137,49 +136,49 @@ const es: typeof en = {
   guideLead: 'En un bosque seco tropical, los insectos son parte del paisaje. Estas son las plagas por las que más consultan los propietarios.',
   pests: [
     {
-      id: 'termites', name: 'Termitas', latin: 'Nasutitermes, Cryptotermes', problem: 'Termites',
+      id: 'termites', alt: 'Ilustración de una termita obrera y una termita alada junto a un túnel de barro', name: 'Termitas', latin: 'Nasutitermes, Cryptotermes', problem: 'Termites',
       signs: 'Túneles finos de barro en paredes o vigas, madera que suena hueca, montoncitos de excremento parecido a arena o aserrín, y alas sueltas en las ventanas después de las primeras lluvias.',
       urgency: 'No es una emergencia para esta noche, pero no espere: las termitas pueden dañar la madera durante meses antes de que se note.',
       work: 'Una inspección para ver hasta dónde llegaron, y luego el tratamiento de la colonia y de la madera afectada.',
     },
     {
-      id: 'ants', name: 'Hormigas', latin: 'Solenopsis y otras', problem: 'Ants',
+      id: 'ants', alt: 'Ilustración de una hormiga brava', name: 'Hormigas', latin: 'Solenopsis y otras', problem: 'Ants',
       signs: 'Caminos de hormigas en la cocina, nidos dentro de paredes o macetas, y montículos de hormiga brava en el zacate.',
       urgency: 'La hormiga brava pica. Trátela pronto si está adentro o donde juegan niños y mascotas.',
       work: 'Encontrar el nido y tratarlo, en lugar de solo rociar el camino.',
     },
     {
-      id: 'cockroaches', name: 'Cucarachas', latin: 'Periplaneta americana', problem: 'Cockroaches',
+      id: 'cockroaches', alt: 'Ilustración de una cucaracha americana', name: 'Cucarachas', latin: 'Periplaneta americana', problem: 'Cockroaches',
       signs: 'Aparecen de noche en cocinas y baños, y dejan excremento parecido a pimienta molida en los gabinetes.',
       urgency: 'Conviene tratarlas antes de que lo noten los huéspedes, sobre todo en una casa de alquiler.',
       work: 'Cebos y tratamiento de los lugares donde se esconden, y un calendario para casas de alquiler.',
     },
     {
-      id: 'scorpions', name: 'Escorpiones', latin: 'Centruroides', problem: 'Scorpions or spiders',
+      id: 'scorpions', alt: 'Ilustración de un escorpión', name: 'Escorpiones', latin: 'Centruroides', problem: 'Scorpions or spiders',
       signs: 'En zapatos, toallas, baños y debajo de los muebles, con frecuencia más al inicio de las lluvias.',
       urgency: 'La picadura es dolorosa. Si alguien es picado y se siente mal, busque atención médica primero.',
       work: 'Tratamiento alrededor de la casa y de sus entradas, y consejos sobre las rendijas que conviene sellar.',
     },
     {
-      id: 'wasps', name: 'Avispas', latin: 'Polistes y otras', problem: 'Wasps',
+      id: 'wasps', alt: 'Ilustración de una avispa junto a su panal', name: 'Avispas', latin: 'Polistes y otras', problem: 'Wasps',
       signs: 'Panales de papel bajo los aleros, los voladizos del techo, los marcos de las ventanas y los muebles de exterior, y avispas que entran y salen de rendijas en paredes o techo.',
       urgency: 'Atiéndalo pronto si el panal está cerca de una puerta, de la piscina o de donde juegan niños. No intente tumbar el panal usted mismo.',
       work: 'Retirar el panal de forma segura y tratar el lugar para que no vuelvan a construir ahí.',
     },
     {
-      id: 'rodents', name: 'Roedores y murciélagos', latin: 'Rattus rattus, Chiroptera', problem: 'Rodents or bats',
+      id: 'rodents', alt: 'Ilustración de una rata de techo y un murciélago', name: 'Roedores y murciélagos', latin: 'Rattus rattus, Chiroptera', problem: 'Rodents or bats',
       signs: 'Excremento, comida o cables mordidos, y ruidos en el cielo raso por la noche.',
       urgency: 'Atiéndalo pronto: el excremento y los cables mordidos son un riesgo para la salud y de incendio.',
       work: 'Encontrar por dónde entran y cerrar esas entradas. Los murciélagos se sacan cerrando las aberturas cuando han salido de noche.',
     },
     {
-      id: 'geckos', name: 'Geckos', latin: 'Hemidactylus frenatus', problem: 'Geckos',
+      id: 'geckos', alt: 'Ilustración de un gecko común de casa', name: 'Geckos', latin: 'Hemidactylus frenatus', problem: 'Geckos',
       signs: 'Su canto de noche, excrementos pequeños y oscuros con una punta blanca en paredes, pisos y ventanas, y geckos reunidos alrededor de las luces exteriores.',
       urgency: 'No son peligrosos para las personas y comen insectos, pero el excremento mancha las paredes y molesta a los huéspedes.',
       work: 'Tratar los insectos que los atraen a las luces y cerrar las rendijas en puertas, ventanas y techo para que se queden afuera.',
     },
     {
-      id: 'mosquitoes', name: 'Zancudos', latin: 'Aedes aegypti', problem: 'Mosquitoes',
+      id: 'mosquitoes', alt: 'Ilustración de un zancudo Aedes aegypti', name: 'Zancudos', latin: 'Aedes aegypti', problem: 'Mosquitoes',
       signs: 'Picaduras al atardecer y en la mañana, y agua estancada en macetas, canoas, llantas o tapas de tanques.',
       urgency: 'Actúe temprano en la época lluviosa, cuando se reproducen más rápido.',
       work: 'Tratar los lugares donde se crían y fumigar alrededor del jardín. Vaciar el agua estancada cada semana ayuda entre visitas.',

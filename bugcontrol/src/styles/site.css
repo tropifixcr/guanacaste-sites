@@ -68,10 +68,9 @@ section { max-width: 1240px; margin-inline: auto; }
 .specimen:hover { border-color: var(--frame); background: rgb(255 255 255 / 0.35); }
 .specimen[aria-current='true'] { border-color: var(--rust); background: rgb(164 71 31 / 0.06); }
 .fig { font-family: var(--display); font-style: italic; color: var(--rust); font-size: 0.95rem; }
-.specimen-art {
-  aspect-ratio: 1; display: grid; place-items: center; text-align: center; padding: 0.5rem;
-  border: 1px dashed var(--frame); color: var(--ink-soft); font-size: 0.8rem; letter-spacing: 0.02em;
-}
+.specimen-art { aspect-ratio: 1; display: block; }
+.specimen-art img { width: 100%; height: 100%; object-fit: contain; transition: transform 300ms ease-out; }
+.specimen:hover .specimen-art img, .specimen[aria-current='true'] .specimen-art img { transform: scale(1.04); }
 .specimen-name { font-family: var(--display); font-weight: 700; font-size: 1.15rem; line-height: 1.15; margin-top: 0.35rem; }
 .specimen-latin { font-family: var(--display); font-style: italic; font-size: 0.9rem; color: var(--ink-soft); }
 

@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import { Image } from 'astro:assets';
 import RequestForm from '@guanacaste/shared/RequestForm.astro';
 import { whatsappLink, paths, type Lang } from '@guanacaste/shared/contact';
 import { copy, site } from '../content';
@@ -8,6 +9,8 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = copy[lang];
 const alt = lang === 'en' ? paths.es.home : paths.en.home;
+const plates = import.meta.glob<{ default: ImageMetadata }>('../assets/plates/*.png', { eager: true });
+const plate = (id: string) => plates[`../assets/plates/${id}.png`].default;
 const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -37,7 +40,7 @@ const faqLd = {
             <li>
               <a class="specimen" href={`#${p.id}`} data-pest={p.id} data-problem={p.problem} data-name={p.name}>
                 <span class="fig">Fig. {i + 1}</span>
-                <span class="specimen-art" data-placeholder>{t.placeholder}</span>
+                <span class="specimen-art"><Image src={plate(p.id)} alt={p.alt} widths={[200, 320, 480]} sizes="(min-width: 1000px) 150px, (min-width: 640px) 22vw, 42vw" format="webp" loading="eager" /></span>
                 <span class="specimen-name">{p.name}</span>
                 <span class="specimen-latin">{p.latin}</span>
               </a>
