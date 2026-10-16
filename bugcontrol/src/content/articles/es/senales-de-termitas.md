@@ -2,6 +2,8 @@
 title: Cómo saber si tiene termitas
 description: Las señales de termitas en una casa de Guanacaste, dónde buscar cuarto por cuarto y qué hacer si las encuentra antes de llamar a un técnico.
 date: 2026-10-16
+cover: ../images/termite-mud-tubes.png
+coverAlt: Túneles finos de termitas subiendo por una pared pintada junto a un marco de madera
 translation: signs-of-termites
 ---
 

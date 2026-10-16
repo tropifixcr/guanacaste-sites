@@ -265,6 +265,11 @@ html { scroll-padding-top: 5.5rem; }
 .article-list h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 0.35rem; }
 .article-list p { margin: 0 0 0.4rem; color: var(--text-soft); }
 .article-list time { font-size: 0.9rem; color: var(--text-soft); }
+.article-card { display: grid; grid-template-columns: 34% 1fr; gap: 1rem; align-items: start; }
+.article-card-text { display: block; }
+.article-thumb { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; transition: transform 300ms ease-out; }
+.article-card:hover .article-thumb { transform: scale(1.02); }
+@media (min-width: 760px) { .article-card { grid-template-columns: 220px 1fr; gap: 1.5rem; } }
 .articles-empty { color: var(--text-soft); }
 .article-back { margin: 0 0 1.5rem; font-weight: 600; }
 .sample-note { margin: 0 0 1.25rem; padding: 0.6rem 0.9rem; font-size: 0.9rem; color: var(--text); background: rgb(255 214 102 / 0.28); border-radius: 8px; }

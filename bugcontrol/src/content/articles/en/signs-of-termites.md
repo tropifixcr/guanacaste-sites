@@ -2,6 +2,8 @@
 title: How to tell if you have termites
 description: The signs of termites in a Guanacaste home, where to look room by room, and what to do if you find them before calling a pest control technician.
 date: 2026-10-16
+cover: ../images/termite-mud-tubes.png
+coverAlt: Thin termite mud tubes running up a painted wall beside a wooden door frame
 translation: senales-de-termitas
 ---
 

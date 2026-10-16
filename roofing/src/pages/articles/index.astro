@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import Layout from '../../components/Layout.astro';
 import { articleText } from '@guanacaste/shared/articles';
 import { paths } from '@guanacaste/shared/contact';
@@ -21,9 +22,14 @@ const slug = (id: string) => id.split('/').pop();
       <ul class="article-list">
         {list.map((a) => (
           <li>
-            <a href={`${paths[lang].articles}${slug(a.id)}/`}><h2>{a.data.title}</h2></a>
-            <p>{a.data.description}</p>
-            <time datetime={a.data.date.toISOString()}>{t.date(a.data.date)}</time>
+            <a class="article-card" href={`${paths[lang].articles}${slug(a.id)}/`}>
+              <Image class="article-thumb" src={a.data.cover} alt={a.data.coverAlt} widths={[240, 480]} sizes="(min-width: 760px) 220px, 34vw" format="webp" />
+              <span class="article-card-text">
+                <h2>{a.data.title}</h2>
+                <p>{a.data.description}</p>
+                <time datetime={a.data.date.toISOString()}>{t.date(a.data.date)}</time>
+              </span>
+            </a>
           </li>
         ))}
       </ul>
