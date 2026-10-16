@@ -56,6 +56,12 @@ const en = {
       work: 'Treatment around the house and its entry points, and advice on gaps to seal.',
     },
     {
+      id: 'wasps', name: 'Wasps', latin: 'Polistes and others', problem: 'Wasps',
+      signs: 'Papery nests under eaves, roof overhangs, window frames and outdoor furniture, and wasps flying in and out of gaps in walls or the roof.',
+      urgency: 'Deal with it soon when the nest is near a door, the pool or where children play. Do not try to knock a nest down yourself.',
+      work: 'Removing the nest safely and treating the spot so they do not build there again.',
+    },
+    {
       id: 'rodents', name: 'Rodents and bats', latin: 'Rattus rattus, Chiroptera', problem: 'Rodents or bats',
       signs: 'Droppings, gnawed food or cables, and noises in the ceiling at night.',
       urgency: 'Deal with it soon: droppings and gnawed wiring are a health and fire risk.',
@@ -102,6 +108,7 @@ const en = {
     { value: 'Ants', label: 'Ants' },
     { value: 'Cockroaches', label: 'Cockroaches' },
     { value: 'Scorpions or spiders', label: 'Scorpions or spiders' },
+    { value: 'Wasps', label: 'Wasps' },
     { value: 'Rodents or bats', label: 'Rodents or bats' },
     { value: 'Geckos', label: 'Geckos' },
     { value: 'Mosquitoes', label: 'Mosquitoes' },
@@ -154,6 +161,12 @@ const es: typeof en = {
       work: 'Tratamiento alrededor de la casa y de sus entradas, y consejos sobre las rendijas que conviene sellar.',
     },
     {
+      id: 'wasps', name: 'Avispas', latin: 'Polistes y otras', problem: 'Wasps',
+      signs: 'Panales de papel bajo los aleros, los voladizos del techo, los marcos de las ventanas y los muebles de exterior, y avispas que entran y salen de rendijas en paredes o techo.',
+      urgency: 'Atiéndalo pronto si el panal está cerca de una puerta, de la piscina o de donde juegan niños. No intente tumbar el panal usted mismo.',
+      work: 'Retirar el panal de forma segura y tratar el lugar para que no vuelvan a construir ahí.',
+    },
+    {
       id: 'rodents', name: 'Roedores y murciélagos', latin: 'Rattus rattus, Chiroptera', problem: 'Rodents or bats',
       signs: 'Excremento, comida o cables mordidos, y ruidos en el cielo raso por la noche.',
       urgency: 'Atiéndalo pronto: el excremento y los cables mordidos son un riesgo para la salud y de incendio.',
@@ -200,6 +213,7 @@ const es: typeof en = {
     { value: 'Ants', label: 'Hormigas' },
     { value: 'Cockroaches', label: 'Cucarachas' },
     { value: 'Scorpions or spiders', label: 'Escorpiones o arañas' },
+    { value: 'Wasps', label: 'Avispas' },
     { value: 'Rodents or bats', label: 'Roedores o murciélagos' },
     { value: 'Geckos', label: 'Geckos' },
     { value: 'Mosquitoes', label: 'Zancudos' },

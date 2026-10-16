@@ -61,9 +61,6 @@ section { max-width: 1240px; margin-inline: auto; }
 .plate-title { font-family: var(--display); font-style: italic; font-size: 1.15rem; }
 .plate-hint { grid-column: 2; font-size: 0.9rem; color: var(--ink-soft); }
 .specimens { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-/* Termites, the costliest pest, is the wide featured figure; seven figures then fill 2 or 4 columns with no gaps. */
-.specimens li:first-child { grid-column: span 2; }
-.specimens li:first-child .specimen-art { aspect-ratio: 2 / 1; }
 .specimen {
   display: grid; gap: 0.15rem; padding: 0.6rem 0.6rem 0.8rem; color: var(--ink); text-decoration: none;
   border: 1px solid transparent; transition: border-color 200ms ease-out, background 200ms ease-out;
@@ -154,6 +151,7 @@ mark { background: #f3d9a4; color: var(--ink); padding: 0 0.2em; }
 }
 @media (min-width: 1000px) {
   .hero { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 4rem; align-items: center; }
+  .hero h1 { font-size: clamp(2.4rem, 3.9vw, 3.6rem); }
   .guide { display: grid; grid-template-columns: 0.75fr 2fr; gap: 4rem; }
   .guide-head { position: sticky; top: 2rem; align-self: start; }
   .entries { margin-top: 0; }
