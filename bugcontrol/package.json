@@ -2,6 +2,15 @@
   "name": "bugcontrol",
   "private": true,
   "type": "module",
-  "scripts": { "dev": "astro dev", "build": "astro build", "preview": "astro preview" },
-  "dependencies": { "@guanacaste/shared": "*", "astro": "^7.3.5" }
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/figtree": "^5.3.0",
+    "@fontsource/bodoni-moda": "^5.3.0",
+    "@guanacaste/shared": "*",
+    "astro": "^7.3.5"
+  }
 }

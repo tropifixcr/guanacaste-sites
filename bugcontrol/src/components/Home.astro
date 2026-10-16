@@ -1,0 +1,136 @@
+---
+import Layout from './Layout.astro';
+import RequestForm from '@guanacaste/shared/RequestForm.astro';
+import { whatsappLink, paths, type Lang } from '@guanacaste/shared/contact';
+import { copy, site } from '../content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = copy[lang];
+const alt = lang === 'en' ? paths.es.home : paths.en.home;
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: t.faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Layout {lang} title={t.title} description={t.description} altPath={alt} jsonLd={[faqLd]}>
+  <main data-guide data-wa-base={t.whatsappText('')}>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>{t.h1}</h1>
+        <p class="lead">{t.lead}</p>
+        <div class="hero-actions">
+          <a class="btn-report" href="#request-section" data-report>{t.report}</a>
+          <a class="btn-wa" href={whatsappLink(t.whatsappText(''))} data-wa target="_blank" rel="noopener">{t.whatsapp}</a>
+        </div>
+      </div>
+
+      <figure class="plate" aria-labelledby="plate-title">
+        <figcaption class="plate-head">
+          <span class="plate-no">Pl. I</span>
+          <span id="plate-title" class="plate-title">{t.plateTitle}</span>
+          <span class="plate-hint">{t.plateHint}</span>
+        </figcaption>
+        <ol class="specimens">
+          {t.pests.map((p, i) => (
+            <li>
+              <a class="specimen" href={`#${p.id}`} data-pest={p.id} data-problem={p.problem} data-name={p.name}>
+                <span class="fig">Fig. {i + 1}</span>
+                <span class="specimen-art" data-placeholder>{t.placeholder}</span>
+                <span class="specimen-name">{p.name}</span>
+                <span class="specimen-latin">{p.latin}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </figure>
+    </section>
+
+    <section class="guide" aria-labelledby="guide-title">
+      <header class="guide-head">
+        <h2 id="guide-title">{t.guideTitle}</h2>
+        <p>{t.guideLead}</p>
+      </header>
+      <div class="entries">
+        {t.pests.map((p, i) => (
+          <article class="entry" id={p.id}>
+            <p class="entry-fig">Fig. {i + 1}</p>
+            <h3>{p.name} <em>{p.latin}</em></h3>
+            <dl>
+              <dt>{t.labels.signs}</dt><dd>{p.signs}</dd>
+              <dt>{t.labels.urgency}</dt><dd>{p.urgency}</dd>
+              <dt>{t.labels.work}</dt><dd>{p.work}</dd>
+            </dl>
+            <a class="entry-report" href="#request-section" data-report-pest={p.problem}>{t.reportThis}</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="how" aria-labelledby="how-title">
+      <h2 id="how-title">{t.howTitle}</h2>
+      <ol class="steps">
+        {t.how.map(([title, text]) => <li><h3>{title}</h3><p>{text}</p></li>)}
+      </ol>
+      <p class="towns"><strong>{t.townsTitle}:</strong> {t.townsText}</p>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">{t.faqTitle}</h2>
+      {t.faqs.map(([q, a]) => (
+        <details><summary>{q}</summary><p>{a}</p></details>
+      ))}
+    </section>
+
+    <section class="request" id="request-section" aria-labelledby="form-title">
+      <div class="request-intro">
+        <h2 id="form-title">{t.formTitle}</h2>
+        <p>{t.formLead}</p>
+        <a class="request-wa" href={whatsappLink(t.whatsappText(''))} target="_blank" rel="noopener">{t.orWhatsapp}</a>
+      </div>
+      <RequestForm {lang} {site} pro={t.pro} problems={t.problems} id="request" />
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const guide = document.querySelector<HTMLElement>('[data-guide]');
+  if (guide) {
+    const form = document.querySelector<HTMLFormElement>('#request');
+    const wa = guide.querySelector<HTMLAnchorElement>('[data-wa]')!;
+    const waBase = guide.dataset.waBase ?? '';
+    const specimens = [...guide.querySelectorAll<HTMLAnchorElement>('[data-pest]')];
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let chosen = '';
+
+    const choose = (problem: string) => {
+      chosen = problem;
+      if (form) form.querySelector<HTMLSelectElement>('[name="problem"]')!.value = problem;
+    };
+    for (const s of specimens) {
+      s.addEventListener('click', (event) => {
+        event.preventDefault();
+        specimens.forEach((o) => o.setAttribute('aria-current', String(o === s)));
+        choose(s.dataset.problem ?? '');
+        wa.href = `https://wa.me/50687016040?text=${encodeURIComponent(waBase + (s.dataset.name ?? ''))}`;
+        const entry = document.getElementById(s.dataset.pest ?? '');
+        if (!entry) return;
+        document.querySelectorAll('.entry.is-found').forEach((e) => e.classList.remove('is-found'));
+        entry.classList.add('is-found');
+        entry.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        history.replaceState(null, '', `#${entry.id}`);
+      });
+    }
+    const goToForm = (event: Event) => {
+      if (!form) return;
+      event.preventDefault();
+      document.querySelector('#request-section')!.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+      form.querySelector<HTMLElement>(chosen ? '[name="details"]' : '[name="problem"]')!.focus({ preventScroll: true });
+    };
+    guide.querySelector('[data-report]')!.addEventListener('click', goToForm);
+    for (const r of guide.querySelectorAll<HTMLAnchorElement>('[data-report-pest]')) {
+      r.addEventListener('click', (event) => { choose(r.dataset.reportPest ?? ''); goToForm(event); });
+    }
+  }
+</script>

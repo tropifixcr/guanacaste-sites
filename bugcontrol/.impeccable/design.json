@@ -1,0 +1,138 @@
+{
+ "schemaVersion": 2,
+ "generatedAt": "2026-10-16T10:01:23",
+ "title": "Design System: Guanacaste Bug Control",
+ "extensions": {
+  "colorMeta": {
+   "plate-sage": {
+    "role": "neutral",
+    "displayName": "Plate Sage",
+    "canonical": "#dce5d3"
+   },
+   "plate-deep": {
+    "role": "neutral",
+    "displayName": "Plate Deep",
+    "canonical": "#cdd9c2"
+   },
+   "plate-frame": {
+    "role": "neutral",
+    "displayName": "Plate Frame",
+    "canonical": "#b7c6aa"
+   },
+   "forest-ink": {
+    "role": "neutral",
+    "displayName": "Forest Ink",
+    "canonical": "#1c2a21"
+   },
+   "ink-soft": {
+    "role": "neutral",
+    "displayName": "Ink Soft",
+    "canonical": "#3c4c40"
+   },
+   "rust-figure": {
+    "role": "neutral",
+    "displayName": "Rust Figure",
+    "canonical": "#a4471f"
+   },
+   "rust-deep": {
+    "role": "neutral",
+    "displayName": "Rust Deep",
+    "canonical": "#823616"
+   },
+   "leaf": {
+    "role": "neutral",
+    "displayName": "Leaf",
+    "canonical": "#2f4a37"
+   },
+   "slip": {
+    "role": "neutral",
+    "displayName": "Slip",
+    "canonical": "#eef3ea"
+   }
+  },
+  "shadows": [],
+  "motion": [
+   {
+    "name": "state",
+    "value": "120-200ms ease-out",
+    "purpose": "Key presses, hovers, toggles."
+   }
+  ],
+  "breakpoints": [
+   {
+    "name": "sm",
+    "value": "640px"
+   },
+   {
+    "name": "lg",
+    "value": "1000px"
+   }
+  ]
+ },
+ "components": [
+  {
+   "name": "Report Button",
+   "kind": "button",
+   "refersTo": "report-button",
+   "description": "Rust pill for the report action.",
+   "html": "<a class=\"ds-report\">Report what you found</a>",
+   "css": ".ds-report{display:inline-flex;align-items:center;min-height:54px;padding:0 1.5rem;border-radius:999px;background:#a4471f;color:#fff;font-weight:650;text-decoration:none}.ds-report:hover{background:#823616}.ds-report:focus-visible{outline:2px solid #a4471f;outline-offset:3px}"
+  },
+  {
+   "name": "Outline Button",
+   "kind": "button",
+   "refersTo": "outline-button",
+   "description": "Ink outline pill, fills ink on hover.",
+   "html": "<a class=\"ds-outline\">WhatsApp</a>",
+   "css": ".ds-outline{display:inline-flex;align-items:center;min-height:54px;padding:0 1.5rem;border-radius:999px;border:1.5px solid #1c2a21;color:#1c2a21;text-decoration:none}.ds-outline:hover{background:#1c2a21;color:#dce5d3}"
+  },
+  {
+   "name": "Specimen",
+   "kind": "card",
+   "refersTo": "specimen",
+   "description": "Plate figure with number, art, name and Latin name.",
+   "html": "<a class=\"ds-spec\"><span class=\"f\">Fig. 1</span><span class=\"a\"></span><b>Termites</b><i>Nasutitermes</i></a>",
+   "css": ".ds-spec{display:grid;gap:.15rem;padding:.6rem;color:#1c2a21;text-decoration:none;border:1px solid transparent}.ds-spec:hover{border-color:#b7c6aa}.ds-spec .f{font-family:\"Bodoni Moda\",serif;font-style:italic;color:#a4471f}.ds-spec .a{aspect-ratio:1;border:1px dashed #b7c6aa}.ds-spec b{font-family:\"Bodoni Moda\",serif}.ds-spec i{font-family:\"Bodoni Moda\",serif;color:#3c4c40}"
+  },
+  {
+   "name": "Ruled Field",
+   "kind": "input",
+   "refersTo": "ruled-field",
+   "description": "Underline field like an inspection slip.",
+   "html": "<input class=\"ds-input\" placeholder=\"Your name\">",
+   "css": ".ds-input{min-height:48px;padding:.7rem .1rem;border:0;border-bottom:1.5px solid #1c2a21;background:transparent;color:#1c2a21}.ds-input:focus{outline:none;border-color:#a4471f;box-shadow:0 2px 0 #a4471f}"
+  }
+ ],
+ "narrative": {
+  "northStar": "The Field Guide Plate",
+  "overview": "The page is a plate from a naturalist field guide: sage plate paper, forest ink, hairline double frames, and rust reserved for figure numbers and the report action. Specimens are figures with numbers and Latin names; the guide entries below are the plate legend. The visitor finds the creature they saw and reports it.",
+  "keyCharacteristics": [
+   "Standalone world",
+   "Phone first",
+   "Honest copy"
+  ],
+  "rules": [
+   {
+    "name": "The Rust Mark Rule",
+    "body": "Rust (#a4471f) marks figure numbers, the selected specimen and the report action. It never fills large areas.",
+    "section": "colors"
+   },
+   {
+    "name": "The Legend Rule",
+    "body": "Every specimen on the plate has a matching entry with Signs, How urgent and What the technician does, linked by its figure number.",
+    "section": "typography"
+   },
+   {
+    "name": "The Flat Paper Rule",
+    "body": "No shadows. Depth comes from hairline frames (1px and 0.5px ink) and paper tone shifts.",
+    "section": "elevation"
+   }
+  ],
+  "dos": [
+   "Do keep the primary action color for the send or report action only."
+  ],
+  "donts": [
+   "Don't add TropiFix branding or link to the sister sites."
+  ]
+ }
+}

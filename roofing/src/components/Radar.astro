@@ -1,0 +1,20 @@
+---
+// Simplified coast from Playa Langosta to Península Papagayo. Positions are approximate: an illustration, not a survey map.
+interface Props { label: string }
+const { label } = Astro.props;
+import { mapTowns } from '../content';
+
+---
+<div class="radar" role="img" aria-label={label}>
+  <svg class="radar-land" viewBox="0 0 600 760" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M600 760 L110 760 L118 712 L108 700 L140 684 L155 668 L138 650 L112 632 L100 612 L118 590 L150 560 L175 532 L192 512 L214 494 L230 470 L222 452 L246 446 L262 438 L284 428 L270 410 L238 392 L222 378 L236 356 L262 334 L300 306 L340 282 L362 268 L384 262 L405 262 L418 248 L440 232 L452 216 L470 196 L486 178 L504 158 L470 140 L430 128 L402 108 L410 86 L440 70 L470 60 L520 40 L560 18 L600 0 Z" />
+  </svg>
+  <div class="radar-rings" aria-hidden="true"></div>
+  <div class="radar-band" aria-hidden="true"></div>
+  <div class="radar-sweep" aria-hidden="true"></div>
+  <ul class="radar-towns" aria-hidden="true">
+    {mapTowns.map((t) => (
+      <li class={`town town-${t.side}`} style={`left:${t.x}%;top:${t.y}%`} data-map-town={t.name}><span>{t.name}</span></li>
+    ))}
+  </ul>
+</div>

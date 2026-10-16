@@ -1,0 +1,148 @@
+{
+ "schemaVersion": 2,
+ "generatedAt": "2026-10-16T10:01:23",
+ "title": "Design System: Guanacaste Roofing",
+ "extensions": {
+  "colorMeta": {
+   "radar-night": {
+    "role": "neutral",
+    "displayName": "Radar Night",
+    "canonical": "#0e1a24"
+   },
+   "night-2": {
+    "role": "neutral",
+    "displayName": "Night 2",
+    "canonical": "#13232f"
+   },
+   "night-3": {
+    "role": "neutral",
+    "displayName": "Night 3",
+    "canonical": "#1b3040"
+   },
+   "coastline": {
+    "role": "neutral",
+    "displayName": "Coastline",
+    "canonical": "#a9bccb"
+   },
+   "land": {
+    "role": "neutral",
+    "displayName": "Land",
+    "canonical": "#172a37"
+   },
+   "text": {
+    "role": "neutral",
+    "displayName": "Text",
+    "canonical": "#f2f6f9"
+   },
+   "text-soft": {
+    "role": "neutral",
+    "displayName": "Text Soft",
+    "canonical": "#b8c7d3"
+   },
+   "rain-green": {
+    "role": "neutral",
+    "displayName": "Rain Green",
+    "canonical": "#3bb273"
+   },
+   "rain-yellow": {
+    "role": "neutral",
+    "displayName": "Rain Yellow",
+    "canonical": "#f4d35e"
+   },
+   "rain-orange": {
+    "role": "neutral",
+    "displayName": "Rain Orange",
+    "canonical": "#e4572e"
+   },
+   "orange-deep": {
+    "role": "neutral",
+    "displayName": "Orange Deep",
+    "canonical": "#c94420"
+   }
+  },
+  "shadows": [],
+  "motion": [
+   {
+    "name": "state",
+    "value": "120-200ms ease-out",
+    "purpose": "Key presses, hovers, toggles."
+   }
+  ],
+  "breakpoints": [
+   {
+    "name": "sm",
+    "value": "640px"
+   },
+   {
+    "name": "lg",
+    "value": "1000px"
+   }
+  ]
+ },
+ "components": [
+  {
+   "name": "Leak Choice",
+   "kind": "button",
+   "refersTo": "leak-choice",
+   "description": "Orange primary choice with arrow.",
+   "html": "<a class=\"ds-leak\">It's leaking</a>",
+   "css": ".ds-leak{display:flex;align-items:center;justify-content:space-between;min-height:60px;padding:0 1.4rem;border-radius:14px;background:#e4572e;color:#fff;font:700 1.3rem/1 \"Barlow Semi Condensed\",sans-serif;text-decoration:none}.ds-leak:hover{background:#c94420}.ds-leak:focus-visible{outline:2px solid #f4d35e;outline-offset:3px}"
+  },
+  {
+   "name": "Outline Choice",
+   "kind": "button",
+   "refersTo": "outline-choice",
+   "description": "Secondary choice outlined in coastline grey.",
+   "html": "<a class=\"ds-new\">New roof or inspection</a>",
+   "css": ".ds-new{display:flex;align-items:center;min-height:60px;padding:0 1.4rem;border-radius:14px;border:1.5px solid #a9bccb;color:#f2f6f9;font:700 1.3rem/1 \"Barlow Semi Condensed\",sans-serif;text-decoration:none}.ds-new:hover{background:#13232f}"
+  },
+  {
+   "name": "Town Chip",
+   "kind": "chip",
+   "refersTo": "town-chip",
+   "description": "Town picker chip, yellow when chosen.",
+   "html": "<button class=\"ds-chip\" aria-pressed=\"true\">Flamingo</button>",
+   "css": ".ds-chip{min-height:44px;padding:0 .95rem;border-radius:999px;border:1px solid #1b3040;background:#13232f;color:#f2f6f9;font-weight:600}.ds-chip[aria-pressed=\"true\"]{background:#f4d35e;border-color:#f4d35e;color:#0e1a24}"
+  },
+  {
+   "name": "Field",
+   "kind": "input",
+   "refersTo": "field",
+   "description": "Night field with yellow focus.",
+   "html": "<input class=\"ds-input\" placeholder=\"Your name\">",
+   "css": ".ds-input{min-height:50px;padding:.7rem .85rem;border-radius:10px;border:1px solid #2c475a;background:#0e1a24;color:#f2f6f9}.ds-input:focus{outline:none;border-color:#f4d35e;box-shadow:0 0 0 3px rgb(244 211 94 / .3)}"
+  }
+ ],
+ "narrative": {
+  "northStar": "The Rain Radar",
+  "overview": "The page is a rain radar of the coast from Tamarindo to Papagayo: night ground, a pale coastline, range rings, a slow sweep and a drifting rain band in green, yellow and orange. Rain intensity colors double as the page palette: orange for the urgent leak action, yellow for selection and focus, green for steady elements. The season strip reads the year the way owners live it.",
+  "keyCharacteristics": [
+   "Standalone world",
+   "Phone first",
+   "Honest copy"
+  ],
+  "rules": [
+   {
+    "name": "The Intensity Rule",
+    "body": "Orange is the urgent leak action, yellow is selection and focus, green is steady state. Never mix their roles.",
+    "section": "colors"
+   },
+   {
+    "name": "The Weather Desk Rule",
+    "body": "Headings and map labels in Barlow Semi Condensed bold; body in Barlow regular. No other faces.",
+    "section": "typography"
+   },
+   {
+    "name": "The Living Map Rule",
+    "body": "The sweep and band move slowly, pause off screen and stop under reduced motion. Nothing else on the page animates continuously.",
+    "section": "elevation"
+   }
+  ],
+  "dos": [
+   "Do keep the primary action color for the send or report action only."
+  ],
+  "donts": [
+   "Don't add TropiFix branding or link to the sister sites."
+  ]
+ }
+}

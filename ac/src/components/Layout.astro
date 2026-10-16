@@ -1,0 +1,27 @@
+---
+import '@fontsource-variable/archivo/wdth.css';
+import '../styles/site.css';
+import BaseLayout from '@guanacaste/shared/BaseLayout.astro';
+import { paths, type Lang } from '@guanacaste/shared/contact';
+import { copy, site } from '../content';
+
+interface Props { lang: Lang; title: string; description: string; altPath: string; jsonLd?: object[] }
+const { lang, title, description, altPath, jsonLd } = Astro.props;
+const t = copy[lang];
+---
+<BaseLayout {title} {description} {lang} {altPath} siteName={site} themeColor="#EEF1EC" {jsonLd}>
+  <link slot="head" rel="preload" href="/fonts/DSEG14Classic-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <header class="bar">
+    <a class="mark" href={paths[lang].home} aria-label={`${site}, home`}>
+      <span class="mark-word">Guanacaste</span>
+      <span class="mark-lcd" aria-hidden="true">AC</span>
+    </a>
+    <a class="lang" href={altPath} hreflang={t.langSwitch.hreflang} lang={t.langSwitch.hreflang}>{t.langSwitch.label}</a>
+  </header>
+  <slot />
+  <footer class="foot">
+    <p class="foot-name">{site}</p>
+    <p>{t.footerNote}</p>
+    <p><a href={paths[lang].privacy}>{t.privacy}</a> · <a href={altPath} hreflang={t.langSwitch.hreflang} lang={t.langSwitch.hreflang}>{t.langSwitch.label}</a></p>
+  </footer>
+</BaseLayout>

@@ -1,0 +1,136 @@
+---
+import Layout from './Layout.astro';
+import Radar from './Radar.astro';
+import RequestForm from '@guanacaste/shared/RequestForm.astro';
+import { whatsappLink, paths, type Lang } from '@guanacaste/shared/contact';
+import { copy, site, months, mapTowns } from '../content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = copy[lang];
+const alt = lang === 'en' ? paths.es.home : paths.en.home;
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: t.faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Layout {lang} title={t.title} description={t.description} altPath={alt} jsonLd={[faqLd]}>
+  <main data-roof data-wa-base={t.whatsappText('')}>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>{t.h1}</h1>
+        <p class="lead">{t.lead}</p>
+        <div class="choices">
+          <a class="choice choice-leak" href="#request-section" data-choice="Leak">{t.leak}</a>
+          <a class="choice choice-new" href="#request-section" data-choice="New roof">{t.newRoof}</a>
+        </div>
+        <a class="wa" href={whatsappLink(t.whatsappText(''))} data-wa target="_blank" rel="noopener">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3 1 2.5c.1.2 1.6 2.5 3.9 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.4Z"/></svg>
+          {t.whatsapp}
+        </a>
+      </div>
+      <div class="hero-map">
+        <Radar label={t.mapLabel} />
+        <div class="town-picker" role="group" aria-label={t.mapLabel}>
+          {mapTowns.map((town) => (
+            <button type="button" class="town-chip" aria-pressed="false" data-town={town.name}>{town.name.replace(/^Playas? (del )?/, '')}</button>
+          ))}
+        </div>
+        <p class="town-status" aria-live="polite" data-town-status></p>
+      </div>
+    </section>
+
+    <section class="season" aria-labelledby="season-title">
+      <div class="season-text">
+        <h2 id="season-title">{t.seasonTitle}</h2>
+        <p>{t.seasonLead}</p>
+      </div>
+      <ol class="months">
+        {months.map((m, i) => (
+          <li class={`month level-${m.level}${m.inspect ? ' inspect' : ''}`}>
+            <span class="month-bar" aria-hidden="true"></span>
+            <span class="month-name" aria-hidden="true">{t.monthNames[i]}</span>
+            <span class="sr">{t.monthFull[i]}: {m.level === 2 ? t.seasonKey.heavy : m.level === 1 ? t.seasonKey.rain : t.seasonKey.dry}{m.inspect ? `, ${t.seasonKey.inspect}` : ''}</span>
+          </li>
+        ))}
+      </ol>
+      <ul class="season-key" aria-hidden="true">
+        <li><i class="k-dry"></i>{t.seasonKey.dry}</li>
+        <li><i class="k-rain"></i>{t.seasonKey.rain}</li>
+        <li><i class="k-heavy"></i>{t.seasonKey.heavy}</li>
+        <li><i class="k-inspect"></i>{t.seasonKey.inspect}</li>
+      </ul>
+      <p class="season-note">{t.seasonNote}</p>
+    </section>
+
+    <section class="services" aria-labelledby="services-title">
+      <h2 id="services-title">{t.servicesTitle}</h2>
+      <dl class="service-list">
+        {t.services.map(([name, text]) => <div><dt>{name}</dt><dd>{text}</dd></div>)}
+      </dl>
+    </section>
+
+    <section class="how" aria-labelledby="how-title">
+      <h2 id="how-title">{t.howTitle}</h2>
+      <ol class="steps">
+        {t.how.map(([title, text]) => <li><h3>{title}</h3><p>{text}</p></li>)}
+      </ol>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">{t.faqTitle}</h2>
+      {t.faqs.map(([q, a]) => (
+        <details><summary>{q}</summary><p>{a}</p></details>
+      ))}
+    </section>
+
+    <section class="request" id="request-section" aria-labelledby="form-title">
+      <div class="request-intro">
+        <h2 id="form-title">{t.formTitle}</h2>
+        <p>{t.formLead}</p>
+        <a class="request-wa" href={whatsappLink(t.whatsappText(''))} target="_blank" rel="noopener">{t.orWhatsapp}</a>
+      </div>
+      <RequestForm {lang} {site} pro={t.pro} problems={t.problems} id="request" />
+    </section>
+  </main>
+</Layout>
+
+<script define:vars={{ chosenText: t.townChosen('%s') }}>
+  // Pause the radar motion while it is off screen.
+  const radar = document.querySelector('.radar');
+  if (radar) new IntersectionObserver(([e]) => radar.classList.toggle('is-paused', !e.isIntersecting)).observe(radar);
+
+  const root = document.querySelector('[data-roof]');
+  const form = document.querySelector('#request');
+  if (root && form) {
+    const wa = root.querySelector('[data-wa]');
+    const status = root.querySelector('[data-town-status]');
+    const waBase = root.dataset.waBase || '';
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let need = '';
+    let town = '';
+    const syncWa = () => { wa.href = `https://wa.me/50687016040?text=${encodeURIComponent(waBase + [need, town].filter(Boolean).join(', '))}`; };
+
+    for (const chip of root.querySelectorAll('[data-town]')) {
+      chip.addEventListener('click', () => {
+        town = chip.dataset.town;
+        root.querySelectorAll('[data-town]').forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+        root.querySelectorAll('[data-map-town]').forEach((d) => d.classList.toggle('is-on', d.dataset.mapTown === town));
+        form.querySelector('[name="town"]').value = town;
+        status.textContent = chosenText.replace('%s', town);
+        syncWa();
+      });
+    }
+    for (const choice of root.querySelectorAll('[data-choice]')) {
+      choice.addEventListener('click', (event) => {
+        event.preventDefault();
+        need = choice.textContent.trim();
+        form.querySelector('[name="problem"]').value = choice.dataset.choice;
+        syncWa();
+        document.querySelector('#request-section').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+        form.querySelector('[name="details"]').focus({ preventScroll: true });
+      });
+    }
+  }
+</script>

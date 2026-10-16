@@ -1,0 +1,109 @@
+---
+// Netlify request form shared by all three sites. Each site styles it through its own CSS
+// using the classes below; the markup and the consent stay identical everywhere.
+import { towns } from './towns';
+import { formText } from './strings';
+import { paths, type Lang } from './contact';
+
+interface Option { value: string; label: string }
+interface Props {
+  lang: Lang;
+  site: string;
+  pro: string;
+  problems: Option[];
+  id?: string;
+}
+const { lang, site, pro, problems, id = 'request' } = Astro.props;
+const t = formText(lang, site, pro);
+---
+<form
+  id={id}
+  class="rf"
+  name="request"
+  method="POST"
+  action={paths[lang].thanks}
+  data-netlify="true"
+  netlify-honeypot="company"
+  data-error={t.error}
+  data-sending={t.sending}
+>
+  <input type="hidden" name="form-name" value="request" />
+  <input type="hidden" name="lang" value={lang} />
+  <p class="rf-trap" aria-hidden="true">
+    <label>Company <input name="company" tabindex="-1" autocomplete="off" /></label>
+  </p>
+
+  <div class="rf-field">
+    <label for={`${id}-problem`}>{t.problem}</label>
+    <select id={`${id}-problem`} name="problem" required>
+      {problems.map((p) => <option value={p.value}>{p.label}</option>)}
+    </select>
+  </div>
+
+  <div class="rf-field">
+    <label for={`${id}-details`}>{t.details}</label>
+    <textarea id={`${id}-details`} name="details" rows="4" aria-describedby={`${id}-details-hint`}></textarea>
+    <p class="rf-hint" id={`${id}-details-hint`}>{t.detailsHint}</p>
+  </div>
+
+  <div class="rf-field">
+    <label for={`${id}-town`}>{t.town}</label>
+    <select id={`${id}-town`} name="town" required>
+      <option value="">{t.townPick}</option>
+      {towns.map((town) => <option>{town}</option>)}
+      <option>{t.townOther}</option>
+    </select>
+  </div>
+
+  <div class="rf-row">
+    <div class="rf-field">
+      <label for={`${id}-name`}>{t.name}</label>
+      <input id={`${id}-name`} name="name" type="text" autocomplete="name" required />
+    </div>
+    <div class="rf-field">
+      <label for={`${id}-phone`}>{t.phone}</label>
+      <input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby={`${id}-phone-hint`} />
+      <p class="rf-hint" id={`${id}-phone-hint`}>{t.phoneHint}</p>
+    </div>
+  </div>
+
+  <div class="rf-field">
+    <label for={`${id}-email`}>{t.email}</label>
+    <input id={`${id}-email`} name="email" type="email" autocomplete="email" />
+  </div>
+
+  <div class="rf-consent">
+    <input id={`${id}-consent`} name="consent" type="checkbox" value="yes" required />
+    <label for={`${id}-consent`}>{t.consent} <a href={paths[lang].privacy}>{t.privacy}</a></label>
+  </div>
+
+  <p class="rf-error" role="alert" hidden></p>
+  <button class="rf-send" type="submit">{t.send}</button>
+  <p class="rf-free">{t.free}</p>
+</form>
+
+<script>
+  // Submit in the background so a failure keeps what the visitor typed; without JS the form posts normally.
+  for (const form of document.querySelectorAll<HTMLFormElement>('form.rf')) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const button = form.querySelector<HTMLButtonElement>('.rf-send')!;
+      const error = form.querySelector<HTMLElement>('.rf-error')!;
+      const label = button.textContent;
+      button.disabled = true;
+      button.textContent = form.dataset.sending ?? label;
+      error.hidden = true;
+      try {
+        const body = new URLSearchParams(new FormData(form) as unknown as Record<string, string>);
+        const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body });
+        if (!res.ok) throw new Error(String(res.status));
+        window.location.href = form.action;
+      } catch {
+        error.textContent = form.dataset.error ?? '';
+        error.hidden = false;
+        button.disabled = false;
+        button.textContent = label;
+      }
+    });
+  }
+</script>

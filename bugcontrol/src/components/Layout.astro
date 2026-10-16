@@ -1,0 +1,28 @@
+---
+import '@fontsource/bodoni-moda/500.css';
+import '@fontsource/bodoni-moda/700.css';
+import '@fontsource/bodoni-moda/400-italic.css';
+import '@fontsource-variable/figtree';
+import '../styles/site.css';
+import BaseLayout from '@guanacaste/shared/BaseLayout.astro';
+import { paths, type Lang } from '@guanacaste/shared/contact';
+import { copy, site } from '../content';
+
+interface Props { lang: Lang; title: string; description: string; altPath: string; jsonLd?: object[] }
+const { lang, title, description, altPath, jsonLd } = Astro.props;
+const t = copy[lang];
+---
+<BaseLayout {title} {description} {lang} {altPath} siteName={site} themeColor="#DCE5D3" {jsonLd}>
+  <header class="bar">
+    <a class="mark" href={paths[lang].home} aria-label={`${site}, home`}>
+      <span class="mark-a">Guanacaste</span> <span class="mark-b">Bug Control</span>
+    </a>
+    <a class="lang" href={altPath} hreflang={t.langSwitch.hreflang} lang={t.langSwitch.hreflang}>{t.langSwitch.label}</a>
+  </header>
+  <slot />
+  <footer class="foot">
+    <p class="foot-name">{site}</p>
+    <p>{t.footerNote}</p>
+    <p><a href={paths[lang].privacy}>{t.privacy}</a> · <a href={altPath} hreflang={t.langSwitch.hreflang} lang={t.langSwitch.hreflang}>{t.langSwitch.label}</a></p>
+  </footer>
+</BaseLayout>
