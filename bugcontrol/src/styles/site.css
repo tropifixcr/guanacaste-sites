@@ -89,7 +89,13 @@ section { max-width: 1240px; margin-inline: auto; }
 .entry dl { display: grid; gap: 0.35rem; margin: 1rem 0 1.25rem; }
 .entry dt { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--leaf); margin-top: 0.6rem; }
 .entry dd { margin: 0; max-width: 60ch; }
-.entry-report { display: inline-flex; align-items: center; min-height: 44px; font-weight: 650; color: var(--rust-deep); }
+.entry-report {
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 48px; padding: 0 1.3rem;
+  border-radius: 999px; background: var(--rust); color: #fff; font-weight: 650; text-decoration: none;
+  transition: background 160ms ease-out;
+}
+.entry-report::after { content: ''; width: 16px; height: 16px; background: currentColor; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat; }
+.entry-report:hover { background: var(--rust-deep); }
 
 /* How it works */
 .how { padding-block: var(--space); border-top: 1px solid var(--ink); }
