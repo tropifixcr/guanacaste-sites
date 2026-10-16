@@ -30,7 +30,8 @@ Most calls here are about two kinds of termite.
 
 After the first heavy rains, many colonies send out winged termites. A cloud of them around a light, or a pile of wings on a windowsill, is a strong sign of a colony nearby.
 
-<figure class="figure-pending" role="img" aria-label="Image to come: thin termite mud tubes running up a painted wall beside a wooden door frame"><span>Image to come: thin termite mud tubes running up a painted wall, beside a wooden door frame.</span><figcaption>Mud tubes are the termites' covered roads. Breaking one open and finding it rebuilt days later means the colony is active.</figcaption></figure>
+![Thin termite mud tubes running up a painted wall beside a wooden door frame](../images/termite-mud-tubes.png)
+*Mud tubes are the termites' covered roads. Breaking one open and finding it rebuilt days later means the colony is active.*
 
 ## What to do if you find them
 

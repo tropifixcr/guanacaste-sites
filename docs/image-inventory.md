@@ -1,6 +1,6 @@
 # Image inventory
 
-Every generated image on the three sites. All are made with Higgsfield after Loic approves the cost, and each source file carries its generation prompt in its metadata. Real local photos replace them when available: swap the file at the same path and name; no code change is needed.
+Every generated image on the three sites. The sample articles (marked `sample: true`) and their images are for previewing the layout and may be replaced before launch. All are made with Higgsfield after Loic approves the cost, and each source file carries its generation prompt in its metadata. Real local photos replace them when available: swap the file at the same path and name; no code change is needed.
 
 Style shared by the Bug Control plate (added to every prompt): "Fine ink linework with soft muted watercolor wash, in the style of a 19th-century naturalist plate. Centered, generous empty margin, transparent background. No text, no labels, no numbers, no frame."
 
@@ -15,11 +15,24 @@ Style shared by the Bug Control plate (added to every prompt): "Fine ink linewor
 | `bugcontrol/src/assets/plates/geckos.png` | Bug Control plate, Fig. 7 | A common house gecko (Hemidactylus frenatus), seen from above | same | 1.5 | Loic, 16 October 2026 |
 | `bugcontrol/src/assets/plates/mosquitoes.png` | Bug Control plate, Fig. 8 | An Aedes aegypti mosquito with white-banded legs | same | 1.5 | Loic, 16 October 2026 |
 
+Article images (photorealistic, no people, no logos, no brand names, no text):
+
+| File | Site and place | Subject in the prompt | Model and settings | Credits | Approved |
+| --- | --- | --- | --- | --- | --- |
+| `ac/src/content/articles/images/ac-dripping-wall.png` | AC sample article (EN and ES), first image | A wall-mounted split AC unit in a bright tropical bedroom, a clearly visible streak of water running down the white wall, a small puddle and a folded towel below. Second attempt: the first had a barely visible drip | GPT Image 2.5 (Higgsfield), high, 1k, 3:2 | 1.5 + 1.5 (first attempt not used) | Loic, 16 October 2026 |
+| `ac/src/content/articles/images/ac-outdoor-unit-salt.png` | AC sample article (EN and ES), second image | A compact mini-split outdoor unit on a metal wall bracket on the concrete wall of a Costa Rican beach house, heavy salt corrosion. Second attempt: the first showed a US-style central unit | same | 1.5 + 1.5 (first attempt not used) | Loic, 16 October 2026 |
+| `bugcontrol/src/content/articles/images/termite-mud-tubes.png` | Bug Control sample article (EN and ES), second image | Thin earthen termite mud tubes running up a white painted wall beside a wooden door frame | same | 1.5 | Loic, 16 October 2026 |
+| `roofing/src/content/articles/images/tile-roof-rain-clouds.png` | Roofing sample article (EN and ES), first image | Clay tile roof of a Guanacaste beach house under dark rainy-season clouds, palm trees | same | 1.5 | Loic, 16 October 2026 |
+| `roofing/src/content/articles/images/gutter-overflowing.png` | Roofing sample article (EN and ES), second image | A metal gutter on a tropical house overflowing during heavy rain | same | 1.5 | Loic, 16 October 2026 |
+
 ## Credits
 
 | Date | Batch | Credits | Balance after |
 | --- | --- | --- | --- |
 | 16 October 2026 | Bug Control plate, 8 illustrations | 12 | 895.5 |
+| 16 October 2026 | Sample article images, 5 | 7.5 | 888 |
+| 16 October 2026 | Redo of the 2 AC article images | 3 | 885 |
+| | **Total so far** | **22.5** | |
 
 ## Not generated
 

@@ -30,7 +30,8 @@ La mayoría de las consultas aquí son por dos tipos de termita.
 
 Después de los primeros aguaceros, muchas colonias sueltan termitas aladas. Una nube de ellas alrededor de un bombillo, o un montón de alas en una ventana, indica que hay una colonia cerca.
 
-<figure class="figure-pending" role="img" aria-label="Imagen pendiente: túneles finos de termitas subiendo por una pared pintada junto a un marco de madera"><span>Imagen pendiente: túneles finos de termitas subiendo por una pared pintada, junto a un marco de puerta de madera.</span><figcaption>Los túneles de barro son los caminos cubiertos de las termitas. Si rompe uno y días después está reconstruido, la colonia está activa.</figcaption></figure>
+![Túneles finos de termitas subiendo por una pared pintada junto a un marco de madera](../images/termite-mud-tubes.png)
+*Los túneles de barro son los caminos cubiertos de las termitas. Si rompe uno y días después está reconstruido, la colonia está activa.*
 
 ## Qué hacer si las encuentra
 

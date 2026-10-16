@@ -14,7 +14,8 @@ Después de meses de calor seco, los primeros aguaceros de mayo encuentran cada 
 
 En Guanacaste la época lluviosa suele empezar en mayo, y la mayoría de las goteras aparecen entonces y otra vez en septiembre y octubre, cuando llueve más fuerte. Un techo revisado al final de la época seca se puede reparar con buen tiempo. Cuando empiezan las goteras, todos llaman al mismo tiempo.
 
-<figure class="figure-pending" role="img" aria-label="Imagen pendiente: el techo de teja de una casa de playa bajo nubes oscuras de lluvia"><span>Imagen pendiente: el techo de teja de una casa de playa bajo nubes oscuras de la época lluviosa.</span><figcaption>Los primeros aguaceros de mayo son la verdadera prueba para un techo que pasó meses bajo el sol.</figcaption></figure>
+![El techo de teja de una casa de playa bajo nubes oscuras de lluvia](../images/tile-roof-rain-clouds.png)
+*Los primeros aguaceros de mayo son la verdadera prueba para un techo que pasó meses bajo el sol.*
 
 ## Una lista para revisar desde el suelo y desde adentro
 
@@ -32,7 +33,8 @@ Por favor, no camine usted sobre las tejas de barro. Se quiebran fácil, y una c
 
 Durante la época seca se acumulan hojas, polvo y nidos. Con el primer temporal, una canoa tapada se rebalsa contra la pared o devuelve el agua por debajo del borde del techo. Límpielas, y revise que cada bajante saque el agua lejos de la casa.
 
-<figure class="figure-pending" role="img" aria-label="Imagen pendiente: una canoa de metal rebalsándose durante un aguacero tropical"><span>Imagen pendiente: una canoa de metal rebalsándose durante un aguacero tropical.</span><figcaption>Una canoa que se rebalsa echa el agua por la pared y puede devolverla por debajo del borde del techo.</figcaption></figure>
+![Una canoa de metal rebalsándose durante un aguacero tropical](../images/gutter-overflowing.png)
+*Una canoa que se rebalsa echa el agua por la pared y puede devolverla por debajo del borde del techo.*
 
 ## Techos planos y terrazas
 

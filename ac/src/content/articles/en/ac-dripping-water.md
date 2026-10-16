@@ -16,7 +16,8 @@ An air conditioner cools the air and pulls humidity out of it at the same time. 
 
 In the humid months in Guanacaste a single unit can collect a surprising amount of water in a day. As long as the drain is clear, you never see it. When the water cannot get out, it overflows the tray and comes out of the front of the unit.
 
-<figure class="figure-pending" role="img" aria-label="Image to come: a wall-mounted AC unit with water dripping down the wall below it"><span>Image to come: a wall-mounted AC unit in a bright bedroom, with water dripping down the wall below it.</span><figcaption>Water coming from the front of the indoor unit usually means the drain cannot keep up.</figcaption></figure>
+![A wall-mounted AC unit with water dripping down the wall below it](../images/ac-dripping-wall.png)
+*Water coming from the front of the indoor unit usually means the drain cannot keep up.*
 
 ## The most common causes here
 
@@ -42,7 +43,8 @@ Do not push a wire into the unit to clear the drain, and do not spray cleaners o
 - The unit is dripping and blowing warm air at the same time.
 - It keeps coming back every few weeks.
 
-<figure class="figure-pending" role="img" aria-label="Image to come: an outdoor AC unit near the beach with salt corrosion on its fins"><span>Image to come: an outdoor AC unit beside a beach house wall, with salt corrosion on the metal fins.</span><figcaption>Near the beach, salt air is hard on the outdoor unit too, which is why regular cleaning matters here.</figcaption></figure>
+![An outdoor AC unit near the beach with salt corrosion on its fins](../images/ac-outdoor-unit-salt.png)
+*Near the beach, salt air is hard on the outdoor unit too, which is why regular cleaning matters here.*
 
 ## How to keep it from happening again
 

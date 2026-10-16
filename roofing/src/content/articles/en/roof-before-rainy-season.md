@@ -14,7 +14,8 @@ After months of dry heat, the first heavy rains in May find every crack in a roo
 
 The rainy season in Guanacaste usually starts in May, and most leaks show up then and again in September and October, when the rain is heaviest. A roof checked at the end of the dry season can be repaired in dry weather. Once leaks start, everyone calls at the same time.
 
-<figure class="figure-pending" role="img" aria-label="Image to come: a clay tile roof of a beach house under dark rainy-season clouds"><span>Image to come: the clay tile roof of a beach house under dark rainy-season clouds.</span><figcaption>The first heavy rains of May are the real test of a roof that has spent months in the sun.</figcaption></figure>
+![A clay tile roof of a beach house under dark rainy-season clouds](../images/tile-roof-rain-clouds.png)
+*The first heavy rains of May are the real test of a roof that has spent months in the sun.*
 
 ## A checklist from the ground and the attic
 
@@ -32,7 +33,8 @@ Please do not walk on clay tiles yourself. They break easily, and a fall from a 
 
 Leaves, dust and nests build up over the dry season. When the first storm comes, a blocked gutter overflows against the wall or backs up under the roof edge. Clear them, and check that each downspout carries the water well away from the house.
 
-<figure class="figure-pending" role="img" aria-label="Image to come: a metal gutter overflowing during heavy tropical rain"><span>Image to come: a metal gutter overflowing during heavy tropical rain.</span><figcaption>An overflowing gutter pours water down the wall and can push it back under the roof edge.</figcaption></figure>
+![A metal gutter overflowing during heavy tropical rain](../images/gutter-overflowing.png)
+*An overflowing gutter pours water down the wall and can push it back under the roof edge.*
 
 ## Flat roofs and terraces
 

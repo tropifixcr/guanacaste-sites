@@ -16,7 +16,8 @@ Un aire acondicionado enfría el aire y al mismo tiempo le quita humedad. Esa hu
 
 En los meses húmedos de Guanacaste un solo equipo puede juntar bastante agua en un día. Mientras el drenaje esté libre, no se nota. Cuando el agua no puede salir, rebalsa la bandeja y sale por el frente del equipo.
 
-<figure class="figure-pending" role="img" aria-label="Imagen pendiente: un aire acondicionado de pared con agua bajando por la pared"><span>Imagen pendiente: un aire acondicionado de pared en un cuarto claro, con agua bajando por la pared debajo de él.</span><figcaption>Si el agua sale por el frente de la unidad interior, casi siempre es porque el drenaje no da abasto.</figcaption></figure>
+![Un aire acondicionado de pared con agua bajando por la pared](../images/ac-dripping-wall.png)
+*Si el agua sale por el frente de la unidad interior, casi siempre es porque el drenaje no da abasto.*
 
 ## Las causas más comunes aquí
 
@@ -42,7 +43,8 @@ No meta un alambre en el equipo para destapar el drenaje ni rocíe limpiadores e
 - El equipo gotea y además tira aire caliente.
 - Vuelve a pasar cada pocas semanas.
 
-<figure class="figure-pending" role="img" aria-label="Imagen pendiente: una unidad exterior cerca de la playa con corrosión por salinidad"><span>Imagen pendiente: una unidad exterior junto a la pared de una casa de playa, con corrosión por salinidad en las aletas.</span><figcaption>Cerca de la playa, la brisa salina también castiga la unidad exterior. Por eso aquí la limpieza regular es tan importante.</figcaption></figure>
+![Una unidad exterior cerca de la playa con corrosión por salinidad](../images/ac-outdoor-unit-salt.png)
+*Cerca de la playa, la brisa salina también castiga la unidad exterior. Por eso aquí la limpieza regular es tan importante.*
 
 ## Cómo evitar que vuelva a pasar
 
