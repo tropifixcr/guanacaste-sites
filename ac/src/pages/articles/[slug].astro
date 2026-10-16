@@ -30,8 +30,9 @@ const articleLd = {
   <main class="article">
     <p class="article-back"><a href={paths[lang].articles}>{t.back}</a></p>
     <article>
+      {entry.data.sample && <p class="sample-note">{t.sample}</p>}
       <h1>{entry.data.title}</h1>
-      <time datetime={entry.data.date.toISOString()}>{t.date(entry.data.date)}</time>
+      <p class="article-meta">{t.updated} <time datetime={entry.data.date.toISOString()}>{t.date(entry.data.date)}</time></p>
       <div class="prose"><Content /></div>
     </article>
     <aside class="article-cta">

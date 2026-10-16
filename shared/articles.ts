@@ -13,6 +13,8 @@ export const articles = defineCollection({
     /** Slug of the same article in the other language, if it exists. */
     translation: z.string().optional(),
     draft: z.boolean().default(false),
+    /** A sample written to preview the layout; shows a note and must be replaced or removed before launch. */
+    sample: z.boolean().default(false),
   }),
 });
 
@@ -26,6 +28,8 @@ export const articleText = (lang: 'en' | 'es', site: string) =>
         empty: 'The first articles are on their way. Until then, ask us anything through the form or on WhatsApp.',
         emptyLink: 'Send a request',
         back: 'All articles',
+        sample: 'Sample article to preview the layout. It will be replaced or removed before launch.',
+        updated: 'Published',
         ctaTitle: 'Need a hand with this?',
         ctaText: (pro: string) => `Tell us what is happening and a local ${pro} will contact you. Free for you.`,
         ctaSend: 'Send a request',
@@ -39,6 +43,8 @@ export const articleText = (lang: 'en' | 'es', site: string) =>
         empty: 'Los primeros artículos vienen en camino. Mientras tanto, escríbanos por el formulario o por WhatsApp.',
         emptyLink: 'Enviar una solicitud',
         back: 'Todos los artículos',
+        sample: 'Artículo de muestra para ver el diseño. Se reemplazará o eliminará antes del lanzamiento.',
+        updated: 'Publicado',
         ctaTitle: '¿Necesita ayuda con esto?',
         ctaText: (pro: string) => `Cuéntenos qué pasa y un ${pro} local le contactará. Sin costo para usted.`,
         ctaSend: 'Enviar una solicitud',
