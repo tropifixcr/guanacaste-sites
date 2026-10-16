@@ -281,6 +281,40 @@ html { scroll-padding-top: 5.5rem; }
 }
 @media (max-width: 420px) { .mark-word { font-size: 1.05rem; } .mark-lcd { font-size: 0.8rem; } }
 
+/* Articles link: in the header from 760px, in the sub row on phones. */
+.bar-wide { display: none; }
+.bar-articles { display: none; align-items: center; min-height: 44px; padding: 0 0.6rem; color: var(--ink-soft); font-weight: 600; text-decoration: none; }
+.bar-articles:hover { color: var(--cool-deep); text-decoration: underline; text-underline-offset: 0.25em; }
+.subnav { display: flex; justify-content: flex-end; gap: 0.25rem 1.25rem; padding: 0 clamp(1rem, 4vw, 3rem); border-bottom: 1px solid var(--key); }
+.subnav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink-soft); font-weight: 600; text-decoration: none; }
+.subnav a:hover { color: var(--cool-deep); }
+@media (min-width: 760px) {
+  .bar-wide { display: inline-flex; }
+  .bar-articles { display: inline-flex; }
+  .subnav { display: none; }
+}
+/* Article index and article pages */
+.articles, .article { max-width: 760px; margin: 0 auto; padding-block: 3rem var(--space); }
+.article-list { list-style: none; padding: 0; margin: 2rem 0 0; }
+.article-list li { padding: 1.5rem 0; border-top: 1px solid var(--key); }
+.article-list a { text-decoration: none; color: inherit; }
+.article-list a:hover h2 { color: var(--cool-deep); }
+.article-list h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 0.35rem; }
+.article-list p { margin: 0 0 0.4rem; color: var(--ink-soft); }
+.article-list time, .article time { font-size: 0.9rem; color: var(--ink-soft); }
+.articles-empty { color: var(--ink-soft); }
+.article-back { margin: 0 0 1.5rem; }
+.prose { margin-top: 2rem; }
+.prose h2 { margin-top: 2.2em; }
+.prose h3 { margin-top: 1.6em; }
+.prose img { max-width: 100%; height: auto; border-radius: 8px; }
+.prose ul, .prose ol { padding-left: 1.3rem; max-width: 64ch; }
+.prose li { margin-bottom: 0.35rem; }
+.article-cta { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid currentColor; }
+.article-cta h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); }
+.article-cta-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.article-cta-actions .bar-wa { padding: 0 1rem; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }

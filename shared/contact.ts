@@ -7,6 +7,6 @@ export const whatsappLink = (text: string) =>
   `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 
 export const paths = {
-  en: { home: '/', thanks: '/thanks/', privacy: '/privacy/' },
-  es: { home: '/es/', thanks: '/es/gracias/', privacy: '/es/privacidad/' },
+  en: { home: '/', thanks: '/thanks/', privacy: '/privacy/', articles: '/articles/' },
+  es: { home: '/es/', thanks: '/es/gracias/', privacy: '/es/privacidad/', articles: '/es/articulos/' },
 } as const;

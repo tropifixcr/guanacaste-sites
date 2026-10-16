@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../components/Layout.astro';
+import { articleText } from '@guanacaste/shared/articles';
+import { paths, whatsappLink } from '@guanacaste/shared/contact';
+import { site, copy } from '../../content';
+
+export async function getStaticPaths() {
+  const lang = 'en';
+  const list = await getCollection('articles', (a) => a.id.startsWith(`${lang}/`) && !a.data.draft);
+  return list.map((entry) => ({ params: { slug: entry.id.split('/').pop() }, props: { entry } }));
+}
+const lang = 'en';
+const other = 'es';
+const { entry } = Astro.props;
+const t = articleText(lang, site);
+const { Content } = await render(entry);
+const altPath = entry.data.translation ? `${paths[other].articles}${entry.data.translation}/` : paths[other].articles;
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: entry.data.title,
+  description: entry.data.description,
+  datePublished: entry.data.date.toISOString(),
+  inLanguage: lang,
+  publisher: { '@type': 'Organization', name: site },
+};
+---
+<Layout {lang} title={`${entry.data.title} | ${site}`} description={entry.data.description} {altPath} jsonLd={[articleLd]}>
+  <main class="article">
+    <p class="article-back"><a href={paths[lang].articles}>{t.back}</a></p>
+    <article>
+      <h1>{entry.data.title}</h1>
+      <time datetime={entry.data.date.toISOString()}>{t.date(entry.data.date)}</time>
+      <div class="prose"><Content /></div>
+    </article>
+    <aside class="article-cta">
+      <h2>{t.ctaTitle}</h2>
+      <p>{t.ctaText(copy[lang].pro)}</p>
+      <p class="article-cta-actions">
+        <a class="bar-cta" href={`${paths[lang].home}#request-section`}>{t.ctaSend}</a>
+        <a class="bar-wa" href={whatsappLink(copy[lang].whatsappText(entry.data.title))} target="_blank" rel="noopener">WhatsApp</a>
+      </p>
+    </aside>
+  </main>
+</Layout>
