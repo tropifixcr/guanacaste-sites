@@ -2,6 +2,7 @@
 import '@fontsource-variable/archivo/wdth.css';
 import '../styles/site.css';
 import BaseLayout from '@guanacaste/shared/BaseLayout.astro';
+import HeaderActions from '@guanacaste/shared/HeaderActions.astro';
 import { paths, type Lang } from '@guanacaste/shared/contact';
 import { copy, site } from '../content';
 
@@ -16,7 +17,7 @@ const t = copy[lang];
       <span class="mark-word">Guanacaste</span>
       <span class="mark-lcd" aria-hidden="true">AC</span>
     </a>
-    <a class="lang" href={altPath} hreflang={t.langSwitch.hreflang} lang={t.langSwitch.hreflang}>{t.langSwitch.label}</a>
+    <HeaderActions {lang} waText={t.whatsappText('')} {altPath} langLabel={t.langSwitch.label} hreflang={t.langSwitch.hreflang} />
   </header>
   <slot />
   <footer class="foot">

@@ -253,6 +253,34 @@ mark { background: #ffe58a; color: var(--ink); padding: 0 0.2em; }
   .steps li { grid-template-columns: 1fr; }
   .steps li::before { grid-row: auto; margin-bottom: 1rem; }
 }
+/* Header actions: language, WhatsApp, request. Sticky so the two contact routes stay one tap away. */
+.bar { position: sticky; top: 0; z-index: 20; background: var(--plastic); }
+html { scroll-padding-top: 5.5rem; }
+.bar-actions { display: flex; align-items: center; gap: 0.5rem; }
+.bar-long { display: none; }
+.bar-short { display: inline; }
+.bar-actions .lang { padding: 0 0.85rem; min-width: 44px; justify-content: center; }
+.bar-wa, .bar-cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; min-height: 44px; min-width: 44px;
+  border-radius: 999px; text-decoration: none; font-weight: 700; white-space: nowrap;
+  transition: background 160ms ease-out, color 160ms ease-out, border-color 160ms ease-out;
+}
+.bar-cta { padding: 0 1rem; background: var(--cool); color: #fff; box-shadow: 0 2px 0 var(--cool-deep); }
+.bar-cta:hover { background: var(--cool-deep); }
+.bar-wa { background: var(--wa); color: #fff; box-shadow: 0 2px 0 var(--wa-deep); }
+.bar-wa:hover { background: var(--wa-deep); }
+@media (min-width: 760px) {
+  .bar-long { display: inline; }
+  .bar-short { display: none; }
+  .bar-wa { padding: 0 1rem; }
+}
+@media (max-width: 420px) {
+  .bar { padding-inline: 0.75rem; gap: 0.5rem; }
+  .bar-actions { gap: 0.35rem; }
+  .bar-cta { padding: 0 0.8rem; }
+}
+@media (max-width: 420px) { .mark-word { font-size: 1.05rem; } .mark-lcd { font-size: 0.8rem; } }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
