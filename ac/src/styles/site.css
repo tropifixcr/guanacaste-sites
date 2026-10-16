@@ -205,7 +205,7 @@ details p { color: var(--ink-soft); padding-bottom: 1rem; }
 .rf { display: grid; gap: 1.1rem; }
 .rf-trap { position: absolute; left: -9999px; }
 .rf-row { display: grid; gap: 1.1rem; }
-.rf-field { display: grid; gap: 0.35rem; }
+.rf-field { display: grid; gap: 0.35rem; align-content: start; }
 .rf label { font-weight: 650; }
 .rf input:not([type='checkbox']), .rf select, .rf textarea {
   width: 100%; min-height: 48px; padding: 0.7rem 0.85rem; border-radius: 12px; border: 2px solid transparent;

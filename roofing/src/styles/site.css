@@ -169,7 +169,7 @@ details p { color: var(--text-soft); padding-bottom: 1rem; }
 .rf { display: grid; gap: 1.1rem; }
 .rf-trap { position: absolute; left: -9999px; }
 .rf-row { display: grid; gap: 1.1rem; }
-.rf-field { display: grid; gap: 0.35rem; }
+.rf-field { display: grid; gap: 0.35rem; align-content: start; }
 .rf label { font-weight: 600; }
 .rf input:not([type='checkbox']), .rf select, .rf textarea {
   width: 100%; min-height: 50px; padding: 0.7rem 0.85rem; border-radius: 10px; border: 1px solid #2c475a;
