@@ -3,12 +3,14 @@ import Layout from './Layout.astro';
 import Radar from './Radar.astro';
 import RequestForm from '@guanacaste/shared/RequestForm.astro';
 import { whatsappLink, paths, type Lang } from '@guanacaste/shared/contact';
+import { formText } from '@guanacaste/shared/strings';
 import { copy, site, months, mapTowns } from '../content';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = copy[lang];
 const alt = lang === 'en' ? paths.es.home : paths.en.home;
+const townOther = formText(lang, site, t.pro).townOther;
 const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -36,6 +38,7 @@ const faqLd = {
           {mapTowns.map((town) => (
             <button type="button" class="town-chip" aria-pressed="false" data-town={town.name}>{town.name.replace(/^Playas? (del )?/, '')}</button>
           ))}
+          <button type="button" class="town-chip town-chip-other" aria-pressed="false" data-town={townOther}>{townOther}</button>
         </div>
         <p class="town-status" aria-live="polite" data-town-status></p>
       </div>

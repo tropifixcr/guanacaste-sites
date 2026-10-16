@@ -62,6 +62,12 @@ const en = {
       work: 'Finding how they get in and closing the entry points. Bats are moved out by closing the gaps once they have left at night.',
     },
     {
+      id: 'geckos', name: 'Geckos', latin: 'Hemidactylus frenatus', problem: 'Geckos',
+      signs: 'Chirping at night, small dark droppings with a white tip on walls, floors and window ledges, and geckos gathered around outdoor lights.',
+      urgency: 'Harmless to people, and they eat insects, but the droppings stain walls and bother guests.',
+      work: 'Treating the insects that draw them to the lights, and closing gaps around doors, windows and the roof so they stay outside.',
+    },
+    {
       id: 'mosquitoes', name: 'Mosquitoes', latin: 'Aedes aegypti', problem: 'Mosquitoes',
       signs: 'Bites at dusk and in the morning, and standing water in plant pots, gutters, tires or tank lids.',
       urgency: 'Act early in the rainy season, when they breed fastest.',
@@ -97,6 +103,7 @@ const en = {
     { value: 'Cockroaches', label: 'Cockroaches' },
     { value: 'Scorpions or spiders', label: 'Scorpions or spiders' },
     { value: 'Rodents or bats', label: 'Rodents or bats' },
+    { value: 'Geckos', label: 'Geckos' },
     { value: 'Mosquitoes', label: 'Mosquitoes' },
     { value: 'Regular preventive treatment', label: 'Regular preventive treatment' },
     { value: 'Something else', label: 'Something else' },
@@ -153,6 +160,12 @@ const es: typeof en = {
       work: 'Encontrar por dónde entran y cerrar esas entradas. Los murciélagos se sacan cerrando las aberturas cuando han salido de noche.',
     },
     {
+      id: 'geckos', name: 'Geckos', latin: 'Hemidactylus frenatus', problem: 'Geckos',
+      signs: 'Su canto de noche, excrementos pequeños y oscuros con una punta blanca en paredes, pisos y ventanas, y geckos reunidos alrededor de las luces exteriores.',
+      urgency: 'No son peligrosos para las personas y comen insectos, pero el excremento mancha las paredes y molesta a los huéspedes.',
+      work: 'Tratar los insectos que los atraen a las luces y cerrar las rendijas en puertas, ventanas y techo para que se queden afuera.',
+    },
+    {
       id: 'mosquitoes', name: 'Zancudos', latin: 'Aedes aegypti', problem: 'Mosquitoes',
       signs: 'Picaduras al atardecer y en la mañana, y agua estancada en macetas, canoas, llantas o tapas de tanques.',
       urgency: 'Actúe temprano en la época lluviosa, cuando se reproducen más rápido.',
@@ -188,6 +201,7 @@ const es: typeof en = {
     { value: 'Cockroaches', label: 'Cucarachas' },
     { value: 'Scorpions or spiders', label: 'Escorpiones o arañas' },
     { value: 'Rodents or bats', label: 'Roedores o murciélagos' },
+    { value: 'Geckos', label: 'Geckos' },
     { value: 'Mosquitoes', label: 'Zancudos' },
     { value: 'Regular preventive treatment', label: 'Tratamiento preventivo regular' },
     { value: 'Something else', label: 'Otra cosa' },

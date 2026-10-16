@@ -189,7 +189,7 @@ details p { color: var(--text-soft); padding-bottom: 1rem; }
 
 /* Footer and simple pages */
 .foot { padding: 2.5rem clamp(1rem, 4vw, 3rem) 3rem; border-top: 1px solid var(--night-3); color: var(--text-soft); font-size: 0.95rem; }
-.foot p { margin: 0 0 0.4rem; }
+.foot p { margin: 0 0 0.4rem; max-width: none; }
 .foot-name { font: 700 1.15rem/1.2 var(--display); color: var(--text); }
 .simple { max-width: 760px; margin: 0 auto; padding-block: 3rem var(--space); }
 .simple h2 { font-size: 1.6rem; margin-top: 2rem; }

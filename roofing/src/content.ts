@@ -12,9 +12,11 @@ export const months = [
 
 // Towns drawn on the coast map, as % of its width and height. Approximate: an illustration, not a survey map.
 export const mapTowns = [
-  { name: 'Tamarindo', x: 25, y: 89, side: 'right' },
+  { name: 'Playa Langosta', x: 21, y: 92.6, side: 'right' },
+  { name: 'Tamarindo', x: 25, y: 88.6, side: 'right' },
   { name: 'Playa Grande', x: 19, y: 82, side: 'right' },
   { name: 'Huacas', x: 48, y: 75.5, side: 'right' },
+  { name: 'Brasilito', x: 37.5, y: 63.8, side: 'left' },
   { name: 'Playa Flamingo', x: 42, y: 59.5, side: 'left' },
   { name: 'Playa Potrero', x: 47, y: 55.5, side: 'right' },
   { name: 'Las Catalinas', x: 39, y: 50, side: 'left' },

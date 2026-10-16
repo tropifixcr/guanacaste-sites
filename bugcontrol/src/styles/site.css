@@ -61,6 +61,9 @@ section { max-width: 1240px; margin-inline: auto; }
 .plate-title { font-family: var(--display); font-style: italic; font-size: 1.15rem; }
 .plate-hint { grid-column: 2; font-size: 0.9rem; color: var(--ink-soft); }
 .specimens { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+/* Termites, the costliest pest, is the wide featured figure; seven figures then fill 2 or 4 columns with no gaps. */
+.specimens li:first-child { grid-column: span 2; }
+.specimens li:first-child .specimen-art { aspect-ratio: 2 / 1; }
 .specimen {
   display: grid; gap: 0.15rem; padding: 0.6rem 0.6rem 0.8rem; color: var(--ink); text-decoration: none;
   border: 1px solid transparent; transition: border-color 200ms ease-out, background 200ms ease-out;
@@ -133,7 +136,7 @@ details p { color: var(--ink-soft); padding-bottom: 1rem; }
 
 /* Footer and simple pages */
 .foot { padding: 2.5rem clamp(1rem, 4vw, 3rem) 3rem; border-top: 1px solid var(--ink); color: var(--ink-soft); font-size: 0.95rem; }
-.foot p { margin: 0 0 0.4rem; }
+.foot p { margin: 0 0 0.4rem; max-width: none; }
 .foot-name { font-family: var(--display); font-weight: 700; color: var(--ink); font-size: 1.1rem; }
 .simple { max-width: 760px; margin: 0 auto; padding-block: 3rem var(--space); }
 .simple h2 { font-size: 1.5rem; margin-top: 2rem; }
@@ -144,7 +147,7 @@ details p { color: var(--ink-soft); padding-bottom: 1rem; }
 mark { background: #f3d9a4; color: var(--ink); padding: 0 0.2em; }
 
 @media (min-width: 640px) {
-  .specimens { grid-template-columns: repeat(3, 1fr); }
+  .specimens { grid-template-columns: repeat(4, 1fr); }
   .rf-row { grid-template-columns: 1fr 1fr; }
   .entries { grid-template-columns: 1fr 1fr; column-gap: 3rem; }
   .steps { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
