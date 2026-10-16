@@ -1,0 +1,13 @@
+{
+  "name": "guanacaste-sites",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12.0" },
+  "workspaces": ["shared", "ac", "bugcontrol", "roofing"],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "dev:ac": "npm run dev -w ac",
+    "dev:bugcontrol": "npm run dev -w bugcontrol",
+    "dev:roofing": "npm run dev -w roofing"
+  }
+}

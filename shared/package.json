@@ -1,0 +1,6 @@
+{
+  "name": "@guanacaste/shared",
+  "private": true,
+  "type": "module",
+  "exports": { "./BaseLayout.astro": "./BaseLayout.astro" }
+}
