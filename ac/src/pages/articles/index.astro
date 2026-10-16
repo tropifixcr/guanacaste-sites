@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../components/Layout.astro';
+import { articleText } from '@guanacaste/shared/articles';
+import { paths } from '@guanacaste/shared/contact';
+import { site } from '../../content';
+
+const lang = 'en';
+const other = 'es';
+const t = articleText(lang, site);
+const list = (await getCollection('articles', (a) => a.id.startsWith(`${lang}/`) && !a.data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const slug = (id: string) => id.split('/').pop();
+---
+<Layout {lang} title={t.title} description={t.description} altPath={paths[other].articles}>
+  <main class="articles">
+    <h1>{t.h1}</h1>
+    {list.length === 0 ? (
+      <p class="articles-empty">{t.empty} <a href={`${paths[lang].home}#request-section`}>{t.emptyLink}</a></p>
+    ) : (
+      <ul class="article-list">
+        {list.map((a) => (
+          <li>
+            <a href={`${paths[lang].articles}${slug(a.id)}/`}><h2>{a.data.title}</h2></a>
+            <p>{a.data.description}</p>
+            <time datetime={a.data.date.toISOString()}>{t.date(a.data.date)}</time>
+          </li>
+        ))}
+      </ul>
+    )}
+  </main>
+</Layout>

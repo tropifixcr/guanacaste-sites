@@ -1,0 +1,165 @@
+---
+import Layout from './Layout.astro';
+import RequestForm from '@guanacaste/shared/RequestForm.astro';
+import { whatsappLink, paths, type Lang } from '@guanacaste/shared/contact';
+import { copy, site } from '../content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = copy[lang];
+const alt = lang === 'en' ? paths.es.home : paths.en.home;
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: t.faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Layout {lang} title={t.title} description={t.description} altPath={alt} jsonLd={[faqLd]}>
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>{t.h1}</h1>
+        <p class="lead">{t.lead}</p>
+      </div>
+
+      <div class="remote" data-remote data-wa-base={t.whatsappText('')}>
+        <div class="lcd" aria-hidden="true">
+          <div class="lcd-row lcd-top">
+            <span class="lcd-tag is-on">COOL</span>
+            <span class="lcd-tag">DRY</span>
+            <span class="lcd-tag">FAN</span>
+            <span class="lcd-fan"><i></i><i></i><i></i></span>
+          </div>
+          <div class="lcd-main">
+            <span class="lcd-ghost">~~~~</span>
+            <span class="lcd-text" data-lcd>24C</span>
+          </div>
+        </div>
+        <p class="readout" aria-live="polite" data-readout>{t.idle}</p>
+        <div class="code-entry" data-code-entry hidden>
+          <label for="code">{lang === 'en' ? 'Code on your unit' : 'Código en su equipo'}</label>
+          <input id="code" name="code" type="text" maxlength="4" autocomplete="off" autocapitalize="characters" data-code />
+        </div>
+
+        <fieldset class="keypad">
+          <legend>{t.keypadLabel}</legend>
+          {t.symptoms.map((s, i) => (
+            <button type="button" class="key" aria-pressed="false"
+              data-symptom={s.id} data-lcd-text={s.lcd} data-answer={s.answer}
+              data-problem={t.problems[i].value} data-label={s.key}>
+              {s.key}
+            </button>
+          ))}
+        </fieldset>
+
+        <div class="remote-actions">
+          <a class="key-send" href="#request" data-send>{t.send}</a>
+          <a class="key-wa" href={whatsappLink(t.whatsappText(''))} data-wa target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3 1 2.5c.1.2 1.6 2.5 3.9 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.4Z"/></svg>
+            {t.whatsapp}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" aria-labelledby="services-title">
+      <h2 id="services-title">{t.servicesTitle}</h2>
+      <dl class="modes">
+        {t.services.map(([name, text]) => (
+          <div class="mode"><dt>{name}</dt><dd>{text}</dd></div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="why" aria-labelledby="why-title">
+      <div class="why-text">
+        <h2 id="why-title">{t.whyTitle}</h2>
+        {t.why.map((p) => <p>{p}</p>)}
+      </div>
+      <div class="interval">
+        <p class="interval-label">{t.intervalLabel}</p>
+        <p class="interval-lcd"><span class="seg">{t.intervalValue}</span> <span class="interval-unit">{t.intervalUnit}</span></p>
+      </div>
+    </section>
+
+    <section class="how" aria-labelledby="how-title">
+      <h2 id="how-title">{t.howTitle}</h2>
+      <ol class="steps">
+        {t.how.map(([title, text]) => <li><h3>{title}</h3><p>{text}</p></li>)}
+      </ol>
+      <p class="towns"><strong>{t.townsTitle}:</strong> {t.townsText}</p>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">{t.faqTitle}</h2>
+      {t.faqs.map(([q, a]) => (
+        <details><summary>{q}</summary><p>{a}</p></details>
+      ))}
+    </section>
+
+    <section class="request" id="request-section" aria-labelledby="form-title">
+      <div class="request-intro">
+        <h2 id="form-title">{t.formTitle}</h2>
+        <p>{t.formLead}</p>
+        <a class="request-wa" href={whatsappLink(t.whatsappText(''))} target="_blank" rel="noopener">{t.orWhatsapp}</a>
+      </div>
+      <RequestForm {lang} {site} pro={t.pro} problems={t.problems} id="request" />
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const remote = document.querySelector<HTMLElement>('[data-remote]');
+  if (remote) {
+    const lcd = remote.querySelector<HTMLElement>('[data-lcd]')!;
+    const readout = remote.querySelector<HTMLElement>('[data-readout]')!;
+    const codeEntry = remote.querySelector<HTMLElement>('[data-code-entry]')!;
+    const code = remote.querySelector<HTMLInputElement>('[data-code]')!;
+    const wa = remote.querySelector<HTMLAnchorElement>('[data-wa]')!;
+    const send = remote.querySelector<HTMLAnchorElement>('[data-send]')!;
+    const keys = [...remote.querySelectorAll<HTMLButtonElement>('[data-symptom]')];
+    const waBase = remote.dataset.waBase ?? '';
+    let current: HTMLButtonElement | null = null;
+
+    const show = (text: string) => {
+      lcd.classList.remove('is-swap');
+      void lcd.offsetWidth;
+      lcd.textContent = text;
+      lcd.classList.add('is-swap');
+    };
+    const sync = () => {
+      const label = current?.dataset.label ?? '';
+      const extra = current?.dataset.symptom === 'error' && code.value ? ` (${code.value.toUpperCase()})` : '';
+      wa.href = `https://wa.me/50687016040?text=${encodeURIComponent(waBase + label + extra)}`;
+    };
+
+    for (const key of keys) {
+      key.addEventListener('click', () => {
+        current = key;
+        keys.forEach((k) => k.setAttribute('aria-pressed', String(k === key)));
+        const isError = key.dataset.symptom === 'error';
+        codeEntry.hidden = !isError;
+        show(isError && code.value ? code.value.slice(0, 4) : key.dataset.lcdText ?? '');
+        readout.textContent = key.dataset.answer ?? '';
+        sync();
+      });
+    }
+    code.addEventListener('input', () => {
+      code.value = code.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      show(code.value ? code.value.slice(0, 4) : 'E -');
+      sync();
+    });
+    send.addEventListener('click', (event) => {
+      const form = document.querySelector<HTMLFormElement>('#request');
+      if (!form) return;
+      event.preventDefault();
+      if (current) {
+        form.querySelector<HTMLSelectElement>('[name="problem"]')!.value = current.dataset.problem ?? '';
+        const details = form.querySelector<HTMLTextAreaElement>('[name="details"]')!;
+        if (current.dataset.symptom === 'error' && code.value && !details.value) details.value = `Error code: ${code.value}`;
+      }
+      document.querySelector('#request-section')!.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      form.querySelector<HTMLElement>(current ? '[name="details"]' : '[name="problem"]')!.focus({ preventScroll: true });
+    });
+  }
+</script>

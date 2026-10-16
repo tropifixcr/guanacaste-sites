@@ -1,0 +1,41 @@
+---
+// Privacy notice body (Ley 8968). Each site is operated under its own name and domain.
+import { paths, whatsappNumber, type Lang } from './contact';
+interface Props { lang: Lang; site: string; pro: string }
+const { lang, site, pro } = Astro.props;
+const phone = `+${whatsappNumber.slice(0, 3)} ${whatsappNumber.slice(3, 7)} ${whatsappNumber.slice(7)}`;
+const operator = `${site} (${new URL(Astro.site ?? 'https://example.com').hostname})`;
+---
+{lang === 'en' ? (
+  <Fragment>
+    <h1>Privacy notice</h1>
+    <p>{site} helps people find a local {pro}. This notice explains what we collect when you send a request and what happens to it, in line with Costa Rica's Law 8968 on the protection of personal data.</p>
+    <h2>Who is responsible</h2>
+    <p>This site is operated by {operator}. For any question about your data, write on WhatsApp to {phone}.</p>
+    <h2>What we collect</h2>
+    <p>What you type in the request form: your name, WhatsApp or phone number, email, your town, and the details of your request. We also receive the messages you send us on WhatsApp.</p>
+    <h2>What we do with it</h2>
+    <p>With your consent, we share your request and contact details with a local {pro} so they can contact you. We do not sell your data and do not use it for advertising.</p>
+    <h2>How long we keep it</h2>
+    <p>We keep requests for 12 months, then delete them.</p>
+    <h2>Your rights</h2>
+    <p>You can ask to see, correct or delete your data, or withdraw your consent, by writing to the WhatsApp number above.</p>
+    <p><a href={paths.en.home}>Back to the home page</a></p>
+  </Fragment>
+) : (
+  <Fragment>
+    <h1>Aviso de privacidad</h1>
+    <p>{site} ayuda a encontrar un {pro} local. Este aviso explica qué datos recibimos cuando usted envía una solicitud y qué hacemos con ellos, conforme a la Ley 8968 de Protección de la Persona frente al Tratamiento de sus Datos Personales.</p>
+    <h2>Responsable</h2>
+    <p>Este sitio es operado por {operator}. Para cualquier consulta sobre sus datos, escriba por WhatsApp al {phone}.</p>
+    <h2>Qué datos recibimos</h2>
+    <p>Lo que usted escribe en el formulario: su nombre, su número de WhatsApp o teléfono, su correo, el lugar y los detalles de su solicitud. También recibimos los mensajes que nos envía por WhatsApp.</p>
+    <h2>Para qué los usamos</h2>
+    <p>Con su consentimiento, compartimos su solicitud y sus datos de contacto con un {pro} local para que le contacte. No vendemos sus datos ni los usamos para publicidad.</p>
+    <h2>Cuánto tiempo los guardamos</h2>
+    <p>Guardamos las solicitudes durante 12 meses y luego las eliminamos.</p>
+    <h2>Sus derechos</h2>
+    <p>Puede pedir ver, corregir o eliminar sus datos, o retirar su consentimiento, escribiendo al número de WhatsApp indicado arriba.</p>
+    <p><a href={paths.es.home}>Volver a la página principal</a></p>
+  </Fragment>
+)}

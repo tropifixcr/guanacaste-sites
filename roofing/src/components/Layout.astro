@@ -1,0 +1,38 @@
+---
+import '@fontsource/barlow/400.css';
+import '@fontsource/barlow/600.css';
+import '@fontsource/barlow-semi-condensed/600.css';
+import '@fontsource/barlow-semi-condensed/700.css';
+import '../styles/site.css';
+import BaseLayout from '@guanacaste/shared/BaseLayout.astro';
+import HeaderActions from '@guanacaste/shared/HeaderActions.astro';
+import SubNav from '@guanacaste/shared/SubNav.astro';
+import { paths, type Lang } from '@guanacaste/shared/contact';
+import { copy, site } from '../content';
+
+interface Props { lang: Lang; title: string; description: string; altPath: string; jsonLd?: object[] }
+const { lang, title, description, altPath, jsonLd } = Astro.props;
+const t = copy[lang];
+---
+<BaseLayout {title} {description} {lang} {altPath} siteName={site} themeColor="#0E1A24" {jsonLd}>
+  <header class="bar">
+    <a class="mark" href={paths[lang].home} aria-label={`${site}, home`}>
+      <svg class="mark-icon" viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="20" cy="20" r="18" stroke="#A9BCCB" stroke-width="1.2" opacity=".5"/>
+        <circle cx="20" cy="20" r="11" stroke="#A9BCCB" stroke-width="1" opacity=".35"/>
+        <path d="M20 20V2a18 18 0 0 1 15.6 9Z" fill="#3BB273" opacity=".55"/>
+        <path d="M10 25 20 16.5 30 25" stroke="#F4D35E" stroke-width="2.6"/>
+        <path d="M13 23.5V31h14v-7.5" stroke="#F2F6F9" stroke-width="1.6"/>
+      </svg>
+      <span class="mark-stack"><span class="mark-a">Guanacaste</span><b>Roofing</b><span class="mark-desc">{lang === 'en' ? 'Leaks · New roofs' : 'Goteras · Techos nuevos'}</span></span>
+    </a>
+    <HeaderActions {lang} waText={t.whatsappText('')} {altPath} langLabel={t.langSwitch.label} hreflang={t.langSwitch.hreflang} />
+  </header>
+  <SubNav {lang} {altPath} langLabel={t.langSwitch.label} hreflang={t.langSwitch.hreflang} />
+  <slot />
+  <footer class="foot">
+    <p class="foot-name">{site}</p>
+    <p>{t.footerNote}</p>
+    <p><a href={paths[lang].privacy}>{t.privacy}</a> · <a href={altPath} hreflang={t.langSwitch.hreflang} lang={t.langSwitch.hreflang}>{t.langSwitch.label}</a></p>
+  </footer>
+</BaseLayout>

@@ -1,0 +1,26 @@
+---
+// Thanks and privacy pages, in the same world as the home page.
+import Layout from './Layout.astro';
+import Privacy from '@guanacaste/shared/Privacy.astro';
+import { paths, type Lang } from '@guanacaste/shared/contact';
+import { copy, site } from '../content';
+interface Props { lang: Lang; page: 'thanks' | 'privacy' }
+const { lang, page } = Astro.props;
+const t = copy[lang];
+const other = lang === 'en' ? 'es' : 'en';
+const title = page === 'thanks' ? `${t.thanksTitle} | ${site}` : `${t.privacy} | ${site}`;
+---
+<Layout {lang} {title} description={t.description} altPath={paths[other][page]}>
+  <main class="simple">
+    {page === 'thanks' ? (
+      <Fragment>
+        <div class="ping" aria-hidden="true"></div>
+        <h1>{t.thanksTitle}</h1>
+        <p>{t.thanksText}</p>
+        <p><a href={paths[lang].home}>{t.thanksBack}</a></p>
+      </Fragment>
+    ) : (
+      <Privacy {lang} {site} pro={t.pro} />
+    )}
+  </main>
+</Layout>

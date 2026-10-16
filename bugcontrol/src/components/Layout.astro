@@ -1,0 +1,39 @@
+---
+import '@fontsource/bodoni-moda/500.css';
+import '@fontsource/bodoni-moda/700.css';
+import '@fontsource/bodoni-moda/400-italic.css';
+import '@fontsource-variable/figtree';
+import '../styles/site.css';
+import BaseLayout from '@guanacaste/shared/BaseLayout.astro';
+import HeaderActions from '@guanacaste/shared/HeaderActions.astro';
+import SubNav from '@guanacaste/shared/SubNav.astro';
+import { paths, type Lang } from '@guanacaste/shared/contact';
+import { copy, site } from '../content';
+
+interface Props { lang: Lang; title: string; description: string; altPath: string; jsonLd?: object[] }
+const { lang, title, description, altPath, jsonLd } = Astro.props;
+const t = copy[lang];
+---
+<BaseLayout {title} {description} {lang} {altPath} siteName={site} themeColor="#DCE5D3" {jsonLd}>
+  <header class="bar">
+    <a class="mark" href={paths[lang].home} aria-label={`${site}, home`}>
+      <svg class="mark-icon" viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+        <ellipse cx="20" cy="23" rx="7" ry="10" fill="#A4471F" stroke="#1C2A21"/>
+        <path d="M20 13v20" stroke="#1C2A21" stroke-width="1"/>
+        <circle cx="20" cy="11" r="3.5" fill="#1C2A21" stroke="none"/>
+        <path d="M18 8.5 14 3.5M22 8.5 26 3.5"/>
+        <path d="M13.5 18 7 15M13 23H6M13.5 28 7 32M26.5 18 33 15M27 23h7M26.5 28 33 32"/>
+        <path d="M31 6 22 21" stroke="#1C2A21" stroke-width="1.2"/><circle cx="31.5" cy="5.5" r="2.4" fill="#1C2A21" stroke="none"/>
+      </svg>
+      <span class="mark-stack"><span class="mark-a">Guanacaste</span><span class="mark-b">Bug Control</span><span class="mark-desc">{lang === 'en' ? 'Pest control' : 'Control de plagas'}</span></span>
+    </a>
+    <HeaderActions {lang} waText={t.whatsappText('')} {altPath} langLabel={t.langSwitch.label} hreflang={t.langSwitch.hreflang} />
+  </header>
+  <SubNav {lang} {altPath} langLabel={t.langSwitch.label} hreflang={t.langSwitch.hreflang} />
+  <slot />
+  <footer class="foot">
+    <p class="foot-name">{site}</p>
+    <p>{t.footerNote}</p>
+    <p><a href={paths[lang].privacy}>{t.privacy}</a> · <a href={altPath} hreflang={t.langSwitch.hreflang} lang={t.langSwitch.hreflang}>{t.langSwitch.label}</a></p>
+  </footer>
+</BaseLayout>

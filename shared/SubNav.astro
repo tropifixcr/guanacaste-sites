@@ -1,0 +1,10 @@
+---
+// Phone-only row under the sticky header: Articles and the language switch, which do not fit beside the contact buttons.
+import { paths, type Lang } from './contact';
+interface Props { lang: Lang; altPath: string; langLabel: string; hreflang: string }
+const { lang, altPath, langLabel, hreflang } = Astro.props;
+---
+<nav class="subnav" aria-label={lang === 'en' ? 'More' : 'Más'}>
+  <a href={paths[lang].articles}>{lang === 'en' ? 'Articles' : 'Artículos'}</a>
+  <a href={altPath} hreflang={hreflang} lang={hreflang}>{langLabel}</a>
+</nav>
