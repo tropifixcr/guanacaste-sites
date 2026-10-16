@@ -3,7 +3,6 @@ title: How to tell if you have termites
 description: The signs of termites in a Guanacaste home, where to look room by room, and what to do if you find them before calling a pest control technician.
 date: 2026-10-16
 translation: senales-de-termitas
-sample: true
 ---
 
 Termites are part of life in a dry tropical forest, and most homes here deal with them sooner or later. The trouble is that they work out of sight: by the time a door frame feels soft, they may have been there for months.

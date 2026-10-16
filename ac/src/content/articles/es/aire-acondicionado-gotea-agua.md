@@ -3,7 +3,6 @@ title: ¿Por qué mi aire acondicionado gotea adentro?
 description: Que el aire acondicionado gotee adentro es común en Guanacaste. Las causas más frecuentes, qué puede revisar usted y cuándo llamar a un técnico.
 date: 2026-10-16
 translation: ac-dripping-water
-sample: true
 ---
 
 Entra al cuarto y hay una línea de agua en la pared debajo del aire, o un charquito en el piso. Asusta, pero en la mayoría de las casas de aquí se debe a una de unas pocas causas sencillas.

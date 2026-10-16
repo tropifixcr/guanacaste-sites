@@ -3,7 +3,6 @@ title: Cómo saber si tiene termitas
 description: Las señales de termitas en una casa de Guanacaste, dónde buscar cuarto por cuarto y qué hacer si las encuentra antes de llamar a un técnico.
 date: 2026-10-16
 translation: signs-of-termites
-sample: true
 ---
 
 Las termitas son parte de la vida en un bosque seco tropical, y casi todas las casas de aquí tienen que lidiar con ellas tarde o temprano. El problema es que trabajan sin que se note: cuando un marco de puerta se siente blando, pueden llevar meses ahí.

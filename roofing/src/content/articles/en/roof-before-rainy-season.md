@@ -3,7 +3,6 @@ title: How to get your roof ready for the rainy season
 description: Why March and April are the time to check a roof in Guanacaste, what to look at from the ground and the attic, and when to call a roofer.
 date: 2026-10-16
 translation: techo-antes-de-las-lluvias
-sample: true
 ---
 
 After months of dry heat, the first heavy rains in May find every crack in a roof. Tiles shift, sealant dries out and gutters fill with leaves and dust. A little attention at the end of the dry season saves a lot of ceiling repairs later.
