@@ -6,8 +6,11 @@ import { z } from 'astro/zod';
 // src/content/articles/en/<slug>.md and src/content/articles/es/<slug>.md
 export const articles = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string().max(60),
+    /** Preview image shown on the Articles page; required on every article. Path relative to the Markdown file. */
+    cover: image(),
+    coverAlt: z.string(),
     description: z.string().max(160),
     date: z.coerce.date(),
     /** Slug of the same article in the other language, if it exists. */

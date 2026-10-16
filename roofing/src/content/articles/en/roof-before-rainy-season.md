@@ -2,6 +2,8 @@
 title: How to get your roof ready for the rainy season
 description: Why March and April are the time to check a roof in Guanacaste, what to look at from the ground and the attic, and when to call a roofer.
 date: 2026-10-16
+cover: ../images/tile-roof-rain-clouds.png
+coverAlt: A clay tile roof of a beach house under dark rainy-season clouds
 translation: techo-antes-de-las-lluvias
 ---
 

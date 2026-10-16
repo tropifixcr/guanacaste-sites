@@ -2,6 +2,8 @@
 title: Cómo preparar el techo para la época lluviosa
 description: Por qué marzo y abril son el momento de revisar el techo en Guanacaste, qué mirar desde el suelo y desde adentro, y cuándo llamar a un techador.
 date: 2026-10-16
+cover: ../images/tile-roof-rain-clouds.png
+coverAlt: El techo de teja de una casa de playa bajo nubes oscuras de lluvia
 translation: roof-before-rainy-season
 ---
 

@@ -2,6 +2,8 @@
 title: Why is my AC dripping water inside?
 description: An indoor AC unit dripping water is common in Guanacaste. The usual causes, what you can safely check yourself, and when to call a technician.
 date: 2026-10-16
+cover: ../images/ac-dripping-wall.png
+coverAlt: A wall-mounted AC unit with water dripping down the wall below it
 translation: aire-acondicionado-gotea-agua
 ---
 
